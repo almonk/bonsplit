@@ -11,6 +11,7 @@ interface LogoProps {
   letterGap?: number;
   showGrid?: boolean;
   padding?: number;
+  onIntroComplete?: () => void;
 }
 
 export default function Logo({
@@ -19,6 +20,7 @@ export default function Logo({
   letterGap = 2,
   showGrid = false,
   padding = 180,
+  onIntroComplete,
 }: LogoProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [blockSize, setBlockSize] = useState<number | null>(null);
@@ -114,6 +116,7 @@ export default function Logo({
               triggerShine();
               setTimeout(() => {
                 setIntroComplete(true);
+                onIntroComplete?.();
               }, totalColumns * 30 + 100);
             }, 300);
           }, 300);
@@ -122,7 +125,7 @@ export default function Logo({
     };
 
     introTimeoutRef.current = setTimeout(revealNextRow, animationSettings.initialDelay);
-  }, [animationSettings.rowDelay, animationSettings.initialDelay, triggerShine, totalColumns]);
+  }, [animationSettings.rowDelay, animationSettings.initialDelay, triggerShine, totalColumns, onIntroComplete]);
 
   // Intro animation - reveal rows one at a time, then B's middle column
   useEffect(() => {
@@ -150,6 +153,7 @@ export default function Logo({
               triggerShine();
               setTimeout(() => {
                 setIntroComplete(true);
+                onIntroComplete?.();
               }, totalColumns * 30 + 100); // Wait for shine to complete
             }, 300);
           }, 300);
@@ -165,7 +169,7 @@ export default function Logo({
         clearTimeout(introTimeoutRef.current);
       }
     };
-  }, [isInitializing, triggerShine, totalColumns, animationSettings.rowDelay, animationSettings.initialDelay]);
+  }, [isInitializing, triggerShine, totalColumns, animationSettings.rowDelay, animationSettings.initialDelay, onIntroComplete]);
 
   // Shine effect after resize ends
   useEffect(() => {

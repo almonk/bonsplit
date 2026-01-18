@@ -5,7 +5,6 @@ import CodeBlock from "./CodeBlock";
 
 const sections = [
   { id: "top", label: "Start", href: "#" },
-  { id: "installation", label: "Installation" },
   { id: "features", label: "Features" },
   { id: "api-reference", label: "Reference" },
 ];
@@ -22,10 +21,10 @@ const APIExample = ({
   icon: React.ReactNode;
 }) => (
   <div className="grid grid-cols-1 lg:grid-cols-[24px_2fr_3fr] gap-4 lg:gap-8">
-    <div className="hidden lg:block text-[#999] dark:text-[#666]">
+    <div className="hidden lg:block text-[#999] dark:text-[#666] shrink-0">
       {icon}
     </div>
-    <div className="flex items-start gap-3 lg:block">
+    <div className="flex items-start gap-3 lg:block min-w-0 shrink-0">
       <div className="lg:hidden text-[#999] dark:text-[#666] shrink-0">
         {icon}
       </div>
@@ -36,7 +35,7 @@ const APIExample = ({
         <p className="text-[15px] text-[#666] dark:text-[#999]">{description}</p>
       </div>
     </div>
-    <div>
+    <div className="min-w-0">
       <CodeBlock>{code}</CodeBlock>
     </div>
   </div>
@@ -223,32 +222,6 @@ export default function ContentSections() {
     <div className="lg:grid lg:grid-cols-[1fr_auto] lg:gap-16 py-16">
       {/* Main content */}
       <div className="space-y-24 max-w-[900px]">
-        {/* Intro & Installation */}
-        <section id="installation" className="lg:w-[70%]">
-          <div className="space-y-6">
-            <p className="text-lg text-[#666] dark:text-[#999]">
-              Bonsplit is a native macOS tab bar library with split pane support for SwiftUI. Smooth 120fps animations, drag-and-drop reordering, and keyboard navigation.
-            </p>
-            <div>
-              <CodeBlock>{`.package(url: "https://github.com/almonk/bonsplit.git", from: "1.0.0")`}</CodeBlock>
-            </div>
-            <div className="flex items-center gap-2 text-sm text-[#666] dark:text-[#999]">
-              <span>or</span>
-              <a
-                href="https://github.com/almonk/bonsplit"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-blue-500 hover:text-blue-600 transition-colors"
-              >
-                <svg viewBox="0 0 24 24" className="w-4 h-4" fill="currentColor">
-                  <path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.17 6.839 9.49.5.092.682-.217.682-.482 0-.237-.009-.866-.014-1.7-2.782.604-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.167 22 16.418 22 12c0-5.523-4.477-10-10-10z" />
-                </svg>
-                View on GitHub
-              </a>
-            </div>
-          </div>
-        </section>
-
         {/* Features */}
         <section id="features">
           <div className="mb-12">
