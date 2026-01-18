@@ -10,7 +10,7 @@ interface HeroProps {
 export default function Hero({ padding, onIntroComplete }: HeroProps) {
   return (
     <section
-      className="w-[100vw] overflow-hidden bg-background"
+      className="w-[100vw] overflow-hidden bg-background select-none"
       style={{ padding }}
     >
       <Logo showGrid padding={padding} onIntroComplete={onIntroComplete} />

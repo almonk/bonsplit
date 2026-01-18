@@ -22,3 +22,13 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+::selection {
+  background-color: #003d99 !important;
+  color: #fff !important;
+}
+
+::-moz-selection {
+  background-color: #003d99 !important;
+  color: #fff !important;
+}
