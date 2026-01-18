@@ -1,0 +1,5 @@
+[tools]
+node = "24"
+
+[hooks.enter]
+run = "npm install"

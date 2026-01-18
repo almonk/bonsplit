@@ -1,0 +1,173 @@
+{
+  "": {
+    "swift-dependencies": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/master.swiftdeps"
+  },
+  "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Internal/Controllers/SplitViewController.swift": {
+    "dependencies": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/SplitViewController.d",
+    "object": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/SplitViewController.swift.o",
+    "swiftmodule": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/SplitViewController~partial.swiftmodule",
+    "swift-dependencies": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/SplitViewController.swiftdeps",
+    "diagnostics": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/SplitViewController.dia"
+  },
+  "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Internal/Models/PaneState.swift": {
+    "dependencies": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/PaneState.d",
+    "object": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/PaneState.swift.o",
+    "swiftmodule": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/PaneState~partial.swiftmodule",
+    "swift-dependencies": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/PaneState.swiftdeps",
+    "diagnostics": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/PaneState.dia"
+  },
+  "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Internal/Models/SplitNode.swift": {
+    "dependencies": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/SplitNode.d",
+    "object": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/SplitNode.swift.o",
+    "swiftmodule": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/SplitNode~partial.swiftmodule",
+    "swift-dependencies": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/SplitNode.swiftdeps",
+    "diagnostics": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/SplitNode.dia"
+  },
+  "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Internal/Models/SplitState.swift": {
+    "dependencies": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/SplitState.d",
+    "object": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/SplitState.swift.o",
+    "swiftmodule": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/SplitState~partial.swiftmodule",
+    "swift-dependencies": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/SplitState.swiftdeps",
+    "diagnostics": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/SplitState.dia"
+  },
+  "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Internal/Models/TabItem.swift": {
+    "dependencies": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/TabItem.d",
+    "object": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/TabItem.swift.o",
+    "swiftmodule": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/TabItem~partial.swiftmodule",
+    "swift-dependencies": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/TabItem.swiftdeps",
+    "diagnostics": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/TabItem.dia"
+  },
+  "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Internal/Styling/TabBarColors.swift": {
+    "dependencies": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/TabBarColors.d",
+    "object": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/TabBarColors.swift.o",
+    "swiftmodule": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/TabBarColors~partial.swiftmodule",
+    "swift-dependencies": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/TabBarColors.swiftdeps",
+    "diagnostics": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/TabBarColors.dia"
+  },
+  "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Internal/Styling/TabBarMetrics.swift": {
+    "dependencies": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/TabBarMetrics.d",
+    "object": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/TabBarMetrics.swift.o",
+    "swiftmodule": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/TabBarMetrics~partial.swiftmodule",
+    "swift-dependencies": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/TabBarMetrics.swiftdeps",
+    "diagnostics": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/TabBarMetrics.dia"
+  },
+  "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Internal/Utilities/SplitAnimator.swift": {
+    "dependencies": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/SplitAnimator.d",
+    "object": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/SplitAnimator.swift.o",
+    "swiftmodule": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/SplitAnimator~partial.swiftmodule",
+    "swift-dependencies": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/SplitAnimator.swiftdeps",
+    "diagnostics": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/SplitAnimator.dia"
+  },
+  "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Internal/Views/PaneContainerView.swift": {
+    "dependencies": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/PaneContainerView.d",
+    "object": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/PaneContainerView.swift.o",
+    "swiftmodule": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/PaneContainerView~partial.swiftmodule",
+    "swift-dependencies": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/PaneContainerView.swiftdeps",
+    "diagnostics": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/PaneContainerView.dia"
+  },
+  "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Internal/Views/SplitContainerView.swift": {
+    "dependencies": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/SplitContainerView.d",
+    "object": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/SplitContainerView.swift.o",
+    "swiftmodule": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/SplitContainerView~partial.swiftmodule",
+    "swift-dependencies": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/SplitContainerView.swiftdeps",
+    "diagnostics": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/SplitContainerView.dia"
+  },
+  "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Internal/Views/SplitNodeView.swift": {
+    "dependencies": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/SplitNodeView.d",
+    "object": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/SplitNodeView.swift.o",
+    "swiftmodule": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/SplitNodeView~partial.swiftmodule",
+    "swift-dependencies": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/SplitNodeView.swiftdeps",
+    "diagnostics": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/SplitNodeView.dia"
+  },
+  "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Internal/Views/SplitViewContainer.swift": {
+    "dependencies": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/SplitViewContainer.d",
+    "object": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/SplitViewContainer.swift.o",
+    "swiftmodule": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/SplitViewContainer~partial.swiftmodule",
+    "swift-dependencies": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/SplitViewContainer.swiftdeps",
+    "diagnostics": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/SplitViewContainer.dia"
+  },
+  "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Internal/Views/TabBarView.swift": {
+    "dependencies": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/TabBarView.d",
+    "object": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/TabBarView.swift.o",
+    "swiftmodule": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/TabBarView~partial.swiftmodule",
+    "swift-dependencies": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/TabBarView.swiftdeps",
+    "diagnostics": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/TabBarView.dia"
+  },
+  "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Internal/Views/TabDragPreview.swift": {
+    "dependencies": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/TabDragPreview.d",
+    "object": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/TabDragPreview.swift.o",
+    "swiftmodule": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/TabDragPreview~partial.swiftmodule",
+    "swift-dependencies": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/TabDragPreview.swiftdeps",
+    "diagnostics": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/TabDragPreview.dia"
+  },
+  "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Internal/Views/TabItemView.swift": {
+    "dependencies": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/TabItemView.d",
+    "object": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/TabItemView.swift.o",
+    "swiftmodule": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/TabItemView~partial.swiftmodule",
+    "swift-dependencies": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/TabItemView.swiftdeps",
+    "diagnostics": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/TabItemView.dia"
+  },
+  "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Public/SplitTabBarConfiguration.swift": {
+    "dependencies": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/SplitTabBarConfiguration.d",
+    "object": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/SplitTabBarConfiguration.swift.o",
+    "swiftmodule": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/SplitTabBarConfiguration~partial.swiftmodule",
+    "swift-dependencies": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/SplitTabBarConfiguration.swiftdeps",
+    "diagnostics": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/SplitTabBarConfiguration.dia"
+  },
+  "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Public/SplitTabBarController.swift": {
+    "dependencies": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/SplitTabBarController.d",
+    "object": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/SplitTabBarController.swift.o",
+    "swiftmodule": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/SplitTabBarController~partial.swiftmodule",
+    "swift-dependencies": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/SplitTabBarController.swiftdeps",
+    "diagnostics": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/SplitTabBarController.dia"
+  },
+  "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Public/SplitTabBarDelegate.swift": {
+    "dependencies": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/SplitTabBarDelegate.d",
+    "object": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/SplitTabBarDelegate.swift.o",
+    "swiftmodule": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/SplitTabBarDelegate~partial.swiftmodule",
+    "swift-dependencies": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/SplitTabBarDelegate.swiftdeps",
+    "diagnostics": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/SplitTabBarDelegate.dia"
+  },
+  "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Public/SplitTabBarView.swift": {
+    "dependencies": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/SplitTabBarView.d",
+    "object": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/SplitTabBarView.swift.o",
+    "swiftmodule": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/SplitTabBarView~partial.swiftmodule",
+    "swift-dependencies": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/SplitTabBarView.swiftdeps",
+    "diagnostics": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/SplitTabBarView.dia"
+  },
+  "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Public/Types/NavigationDirection.swift": {
+    "dependencies": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/NavigationDirection.d",
+    "object": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/NavigationDirection.swift.o",
+    "swiftmodule": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/NavigationDirection~partial.swiftmodule",
+    "swift-dependencies": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/NavigationDirection.swiftdeps",
+    "diagnostics": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/NavigationDirection.dia"
+  },
+  "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Public/Types/PaneID.swift": {
+    "dependencies": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/PaneID.d",
+    "object": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/PaneID.swift.o",
+    "swiftmodule": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/PaneID~partial.swiftmodule",
+    "swift-dependencies": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/PaneID.swiftdeps",
+    "diagnostics": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/PaneID.dia"
+  },
+  "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Public/Types/SplitOrientation.swift": {
+    "dependencies": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/SplitOrientation.d",
+    "object": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/SplitOrientation.swift.o",
+    "swiftmodule": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/SplitOrientation~partial.swiftmodule",
+    "swift-dependencies": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/SplitOrientation.swiftdeps",
+    "diagnostics": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/SplitOrientation.dia"
+  },
+  "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Public/Types/Tab.swift": {
+    "dependencies": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/Tab.d",
+    "object": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/Tab.swift.o",
+    "swiftmodule": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/Tab~partial.swiftmodule",
+    "swift-dependencies": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/Tab.swiftdeps",
+    "diagnostics": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/Tab.dia"
+  },
+  "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Public/Types/TabID.swift": {
+    "dependencies": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/TabID.d",
+    "object": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/TabID.swift.o",
+    "swiftmodule": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/TabID~partial.swiftmodule",
+    "swift-dependencies": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/TabID.swiftdeps",
+    "diagnostics": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/TabID.dia"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "": {
+    "swift-dependencies": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/BonsplitTests.build/master.swiftdeps"
+  },
+  "/Users/alasdairmonk/Apps/SplitTabBar/Tests/SplitTabBarTests/SplitTabBarTests.swift": {
+    "dependencies": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/BonsplitTests.build/SplitTabBarTests.d",
+    "object": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/BonsplitTests.build/SplitTabBarTests.swift.o",
+    "swiftmodule": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/BonsplitTests.build/SplitTabBarTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/BonsplitTests.build/SplitTabBarTests.swiftdeps",
+    "diagnostics": "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/BonsplitTests.build/SplitTabBarTests.dia"
+  }
+}

@@ -1,0 +1,883 @@
+{
+  "builtTestProducts" : [
+    {
+      "binaryPath" : "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBarPackageTests.xctest/Contents/MacOS/SplitTabBarPackageTests",
+      "packagePath" : "/Users/alasdairmonk/Apps/SplitTabBar",
+      "productName" : "SplitTabBarPackageTests"
+    }
+  ],
+  "copyCommands" : {
+
+  },
+  "explicitTargetDependencyImportCheckingMode" : {
+    "none" : {
+
+    }
+  },
+  "generatedSourceTargetSet" : [
+
+  ],
+  "pluginDescriptions" : [
+
+  ],
+  "swiftCommands" : {
+    "C.SplitTabBar-arm64-apple-macosx15.0-debug.module" : {
+      "executable" : "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "fileList" : "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/sources",
+      "importPath" : "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Internal/Controllers/SplitViewController.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Internal/Models/PaneState.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Internal/Models/SplitNode.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Internal/Models/SplitState.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Internal/Models/TabItem.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Internal/Styling/TabBarColors.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Internal/Styling/TabBarMetrics.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Internal/Utilities/SplitAnimator.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Internal/Views/PaneContainerView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Internal/Views/SplitContainerView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Internal/Views/SplitNodeView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Internal/Views/SplitViewContainer.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Internal/Views/TabBarView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Internal/Views/TabDragPreview.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Internal/Views/TabItemView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Public/SplitTabBarConfiguration.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Public/SplitTabBarController.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Public/SplitTabBarDelegate.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Public/SplitTabBarView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Public/Types/NavigationDirection.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Public/Types/PaneID.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Public/Types/SplitOrientation.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Public/Types/Tab.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Public/Types/TabID.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/sources"
+        }
+      ],
+      "isLibrary" : true,
+      "moduleName" : "SplitTabBar",
+      "moduleOutputPath" : "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/Modules/SplitTabBar.swiftmodule",
+      "objects" : [
+        "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/SplitViewController.swift.o",
+        "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/PaneState.swift.o",
+        "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/SplitNode.swift.o",
+        "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/SplitState.swift.o",
+        "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/TabItem.swift.o",
+        "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/TabBarColors.swift.o",
+        "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/TabBarMetrics.swift.o",
+        "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/SplitAnimator.swift.o",
+        "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/PaneContainerView.swift.o",
+        "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/SplitContainerView.swift.o",
+        "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/SplitNodeView.swift.o",
+        "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/SplitViewContainer.swift.o",
+        "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/TabBarView.swift.o",
+        "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/TabDragPreview.swift.o",
+        "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/TabItemView.swift.o",
+        "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/SplitTabBarConfiguration.swift.o",
+        "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/SplitTabBarController.swift.o",
+        "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/SplitTabBarDelegate.swift.o",
+        "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/SplitTabBarView.swift.o",
+        "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/NavigationDirection.swift.o",
+        "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/PaneID.swift.o",
+        "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/SplitOrientation.swift.o",
+        "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/Tab.swift.o",
+        "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/TabID.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "arm64-apple-macosx14.0",
+        "-incremental",
+        "-enable-batch-mode",
+        "-serialize-diagnostics",
+        "-Onone",
+        "-enable-testing",
+        "-j12",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+        "-module-cache-path",
+        "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/ModuleCache",
+        "-parseable-output",
+        "-parse-as-library",
+        "-emit-objc-header",
+        "-emit-objc-header-path",
+        "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/include/SplitTabBar-Swift.h",
+        "-swift-version",
+        "5",
+        "-Xfrontend",
+        "-experimental-lazy-typecheck",
+        "-Xfrontend",
+        "-experimental-skip-all-function-bodies",
+        "-Xfrontend",
+        "-experimental-allow-module-with-compiler-errors",
+        "-Xfrontend",
+        "-empty-abi-descriptor",
+        "-plugin-path",
+        "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing",
+        "-sdk",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+        "-I",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-L",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-g",
+        "-Xcc",
+        "-isysroot",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+        "-Xcc",
+        "-F",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-Xcc",
+        "-F",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "splittabbar"
+      ],
+      "outputFileMapPath" : "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/Modules/SplitTabBar.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : true,
+      "sources" : [
+        "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Internal/Controllers/SplitViewController.swift",
+        "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Internal/Models/PaneState.swift",
+        "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Internal/Models/SplitNode.swift",
+        "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Internal/Models/SplitState.swift",
+        "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Internal/Models/TabItem.swift",
+        "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Internal/Styling/TabBarColors.swift",
+        "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Internal/Styling/TabBarMetrics.swift",
+        "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Internal/Utilities/SplitAnimator.swift",
+        "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Internal/Views/PaneContainerView.swift",
+        "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Internal/Views/SplitContainerView.swift",
+        "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Internal/Views/SplitNodeView.swift",
+        "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Internal/Views/SplitViewContainer.swift",
+        "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Internal/Views/TabBarView.swift",
+        "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Internal/Views/TabDragPreview.swift",
+        "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Internal/Views/TabItemView.swift",
+        "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Public/SplitTabBarConfiguration.swift",
+        "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Public/SplitTabBarController.swift",
+        "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Public/SplitTabBarDelegate.swift",
+        "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Public/SplitTabBarView.swift",
+        "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Public/Types/NavigationDirection.swift",
+        "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Public/Types/PaneID.swift",
+        "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Public/Types/SplitOrientation.swift",
+        "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Public/Types/Tab.swift",
+        "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Public/Types/TabID.swift"
+      ],
+      "tempsPath" : "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build",
+      "wholeModuleOptimization" : false
+    },
+    "C.SplitTabBarPackageTests-arm64-apple-macosx15.0-debug.module" : {
+      "executable" : "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "fileList" : "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBarPackageTests.build/sources",
+      "importPath" : "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBarPackageTests.derived/runner.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/Modules/SplitTabBarTests.swiftmodule"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBarPackageTests.build/sources"
+        }
+      ],
+      "isLibrary" : true,
+      "moduleName" : "SplitTabBarPackageTests",
+      "moduleOutputPath" : "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/Modules/SplitTabBarPackageTests.swiftmodule",
+      "objects" : [
+        "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBarPackageTests.build/runner.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "arm64-apple-macosx14.0",
+        "-incremental",
+        "-enable-batch-mode",
+        "-serialize-diagnostics",
+        "-Onone",
+        "-enable-testing",
+        "-Xfrontend",
+        "-enable-cross-import-overlays",
+        "-j12",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+        "-module-cache-path",
+        "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/ModuleCache",
+        "-parseable-output",
+        "-parse-as-library",
+        "-emit-objc-header",
+        "-emit-objc-header-path",
+        "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBarPackageTests.build/include/SplitTabBarPackageTests-Swift.h",
+        "-Xfrontend",
+        "-experimental-lazy-typecheck",
+        "-Xfrontend",
+        "-experimental-skip-all-function-bodies",
+        "-Xfrontend",
+        "-experimental-allow-module-with-compiler-errors",
+        "-Xfrontend",
+        "-empty-abi-descriptor",
+        "-plugin-path",
+        "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing",
+        "-sdk",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+        "-I",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-L",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-g",
+        "-Xcc",
+        "-isysroot",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+        "-Xcc",
+        "-F",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-Xcc",
+        "-F",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "splittabbar"
+      ],
+      "outputFileMapPath" : "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBarPackageTests.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/Modules/SplitTabBarPackageTests.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : true,
+      "sources" : [
+        "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBarPackageTests.derived/runner.swift"
+      ],
+      "tempsPath" : "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBarPackageTests.build",
+      "wholeModuleOptimization" : false
+    },
+    "C.SplitTabBarTests-arm64-apple-macosx15.0-debug.module" : {
+      "executable" : "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "fileList" : "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBarTests.build/sources",
+      "importPath" : "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/alasdairmonk/Apps/SplitTabBar/Tests/SplitTabBarTests/SplitTabBarTests.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/Modules/SplitTabBar.swiftmodule"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBarTests.build/sources"
+        }
+      ],
+      "isLibrary" : true,
+      "moduleName" : "SplitTabBarTests",
+      "moduleOutputPath" : "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/Modules/SplitTabBarTests.swiftmodule",
+      "objects" : [
+        "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBarTests.build/SplitTabBarTests.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "arm64-apple-macosx14.0",
+        "-incremental",
+        "-enable-batch-mode",
+        "-serialize-diagnostics",
+        "-Onone",
+        "-enable-testing",
+        "-Xfrontend",
+        "-enable-cross-import-overlays",
+        "-j12",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+        "-module-cache-path",
+        "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/ModuleCache",
+        "-parseable-output",
+        "-parse-as-library",
+        "-swift-version",
+        "5",
+        "-Xfrontend",
+        "-experimental-lazy-typecheck",
+        "-Xfrontend",
+        "-experimental-skip-all-function-bodies",
+        "-Xfrontend",
+        "-experimental-allow-module-with-compiler-errors",
+        "-Xfrontend",
+        "-empty-abi-descriptor",
+        "-plugin-path",
+        "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing",
+        "-sdk",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+        "-I",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-L",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-g",
+        "-Xcc",
+        "-isysroot",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+        "-Xcc",
+        "-F",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-Xcc",
+        "-F",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "splittabbar"
+      ],
+      "outputFileMapPath" : "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBarTests.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/Modules/SplitTabBarTests.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : true,
+      "sources" : [
+        "/Users/alasdairmonk/Apps/SplitTabBar/Tests/SplitTabBarTests/SplitTabBarTests.swift"
+      ],
+      "tempsPath" : "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBarTests.build",
+      "wholeModuleOptimization" : false
+    }
+  },
+  "swiftFrontendCommands" : {
+
+  },
+  "swiftTargetScanArgs" : {
+    "SplitTabBar" : [
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "-module-name",
+      "SplitTabBar",
+      "-package-name",
+      "splittabbar",
+      "-c",
+      "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Internal/Controllers/SplitViewController.swift",
+      "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Internal/Models/PaneState.swift",
+      "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Internal/Models/SplitNode.swift",
+      "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Internal/Models/SplitState.swift",
+      "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Internal/Models/TabItem.swift",
+      "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Internal/Styling/TabBarColors.swift",
+      "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Internal/Styling/TabBarMetrics.swift",
+      "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Internal/Utilities/SplitAnimator.swift",
+      "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Internal/Views/PaneContainerView.swift",
+      "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Internal/Views/SplitContainerView.swift",
+      "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Internal/Views/SplitNodeView.swift",
+      "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Internal/Views/SplitViewContainer.swift",
+      "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Internal/Views/TabBarView.swift",
+      "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Internal/Views/TabDragPreview.swift",
+      "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Internal/Views/TabItemView.swift",
+      "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Public/SplitTabBarConfiguration.swift",
+      "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Public/SplitTabBarController.swift",
+      "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Public/SplitTabBarDelegate.swift",
+      "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Public/SplitTabBarView.swift",
+      "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Public/Types/NavigationDirection.swift",
+      "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Public/Types/PaneID.swift",
+      "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Public/Types/SplitOrientation.swift",
+      "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Public/Types/Tab.swift",
+      "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Public/Types/TabID.swift",
+      "-I",
+      "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/Modules",
+      "-target",
+      "arm64-apple-macosx14.0",
+      "-incremental",
+      "-enable-batch-mode",
+      "-serialize-diagnostics",
+      "-Onone",
+      "-enable-testing",
+      "-j12",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+      "-module-cache-path",
+      "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/ModuleCache",
+      "-parseable-output",
+      "-parse-as-library",
+      "-emit-objc-header",
+      "-emit-objc-header-path",
+      "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/include/SplitTabBar-Swift.h",
+      "-swift-version",
+      "5",
+      "-Xfrontend",
+      "-experimental-lazy-typecheck",
+      "-Xfrontend",
+      "-experimental-skip-all-function-bodies",
+      "-Xfrontend",
+      "-experimental-allow-module-with-compiler-errors",
+      "-Xfrontend",
+      "-empty-abi-descriptor",
+      "-plugin-path",
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing",
+      "-sdk",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+      "-F",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-F",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+      "-I",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-L",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-g",
+      "-Xcc",
+      "-isysroot",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+      "-Xcc",
+      "-F",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-Xcc",
+      "-F",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "splittabbar",
+      "-driver-use-frontend-path",
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"
+    ],
+    "SplitTabBarPackageTests" : [
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "-module-name",
+      "SplitTabBarPackageTests",
+      "-package-name",
+      "splittabbar",
+      "-c",
+      "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBarPackageTests.derived/runner.swift",
+      "-I",
+      "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/Modules",
+      "-target",
+      "arm64-apple-macosx14.0",
+      "-incremental",
+      "-enable-batch-mode",
+      "-serialize-diagnostics",
+      "-Onone",
+      "-enable-testing",
+      "-Xfrontend",
+      "-enable-cross-import-overlays",
+      "-j12",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+      "-module-cache-path",
+      "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/ModuleCache",
+      "-parseable-output",
+      "-parse-as-library",
+      "-emit-objc-header",
+      "-emit-objc-header-path",
+      "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBarPackageTests.build/include/SplitTabBarPackageTests-Swift.h",
+      "-Xfrontend",
+      "-experimental-lazy-typecheck",
+      "-Xfrontend",
+      "-experimental-skip-all-function-bodies",
+      "-Xfrontend",
+      "-experimental-allow-module-with-compiler-errors",
+      "-Xfrontend",
+      "-empty-abi-descriptor",
+      "-plugin-path",
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing",
+      "-sdk",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+      "-F",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-F",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+      "-I",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-L",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-g",
+      "-Xcc",
+      "-isysroot",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+      "-Xcc",
+      "-F",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-Xcc",
+      "-F",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "splittabbar",
+      "-driver-use-frontend-path",
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"
+    ],
+    "SplitTabBarTests" : [
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "-module-name",
+      "SplitTabBarTests",
+      "-package-name",
+      "splittabbar",
+      "-c",
+      "/Users/alasdairmonk/Apps/SplitTabBar/Tests/SplitTabBarTests/SplitTabBarTests.swift",
+      "-I",
+      "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/Modules",
+      "-target",
+      "arm64-apple-macosx14.0",
+      "-incremental",
+      "-enable-batch-mode",
+      "-serialize-diagnostics",
+      "-Onone",
+      "-enable-testing",
+      "-Xfrontend",
+      "-enable-cross-import-overlays",
+      "-j12",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+      "-module-cache-path",
+      "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/ModuleCache",
+      "-parseable-output",
+      "-parse-as-library",
+      "-swift-version",
+      "5",
+      "-Xfrontend",
+      "-experimental-lazy-typecheck",
+      "-Xfrontend",
+      "-experimental-skip-all-function-bodies",
+      "-Xfrontend",
+      "-experimental-allow-module-with-compiler-errors",
+      "-Xfrontend",
+      "-empty-abi-descriptor",
+      "-plugin-path",
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing",
+      "-sdk",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+      "-F",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-F",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+      "-I",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-L",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-g",
+      "-Xcc",
+      "-isysroot",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+      "-Xcc",
+      "-F",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-Xcc",
+      "-F",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "splittabbar",
+      "-driver-use-frontend-path",
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"
+    ]
+  },
+  "targetDependencyMap" : {
+    "SplitTabBar" : [
+
+    ],
+    "SplitTabBarPackageTests" : [
+      "SplitTabBarTests",
+      "SplitTabBar"
+    ],
+    "SplitTabBarTests" : [
+      "SplitTabBar"
+    ]
+  },
+  "testDiscoveryCommands" : {
+
+  },
+  "testEntryPointCommands" : {
+
+  },
+  "traitConfiguration" : {
+    "default" : {
+
+    }
+  },
+  "writeCommands" : {
+    "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Internal/Controllers/SplitViewController.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Internal/Models/PaneState.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Internal/Models/SplitNode.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Internal/Models/SplitState.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Internal/Models/TabItem.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Internal/Styling/TabBarColors.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Internal/Styling/TabBarMetrics.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Internal/Utilities/SplitAnimator.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Internal/Views/PaneContainerView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Internal/Views/SplitContainerView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Internal/Views/SplitNodeView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Internal/Views/SplitViewContainer.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Internal/Views/TabBarView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Internal/Views/TabDragPreview.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Internal/Views/TabItemView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Public/SplitTabBarConfiguration.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Public/SplitTabBarController.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Public/SplitTabBarDelegate.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Public/SplitTabBarView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Public/Types/NavigationDirection.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Public/Types/PaneID.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Public/Types/SplitOrientation.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Public/Types/Tab.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/alasdairmonk/Apps/SplitTabBar/Sources/SplitTabBar/Public/Types/TabID.swift"
+        }
+      ],
+      "outputFilePath" : "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBar.build/sources"
+    },
+    "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBarPackageTests.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBarPackageTests.derived/runner.swift"
+        }
+      ],
+      "outputFilePath" : "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBarPackageTests.build/sources"
+    },
+    "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBarTests.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/alasdairmonk/Apps/SplitTabBar/Tests/SplitTabBarTests/SplitTabBarTests.swift"
+        }
+      ],
+      "outputFilePath" : "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/SplitTabBarTests.build/sources"
+    },
+    "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt" : {
+      "alwaysOutOfDate" : true,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<swift-get-version>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"
+        }
+      ],
+      "outputFilePath" : "/Users/alasdairmonk/Apps/SplitTabBar/.build/index-build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt"
+    }
+  }
+}
