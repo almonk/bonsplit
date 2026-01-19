@@ -376,7 +376,7 @@ export default function Logo({
             top: -padding,
             left: -padding,
             width: "100vw",
-            height: 7 * cellSize + padding * 2,
+            height: 8 * cellSize + padding * 2,
             pointerEvents: "none",
             zIndex: 1000,
             backgroundImage: `
@@ -385,8 +385,8 @@ export default function Logo({
             `,
             backgroundSize: `${cellSize}px ${cellSize}px`,
             backgroundPosition: `${padding - gap + 1}px ${padding - gap + 1}px`,
-            maskImage: "linear-gradient(to bottom, black 0%, black 60%, transparent 100%)",
-            WebkitMaskImage: "linear-gradient(to bottom, black 0%, black 60%, transparent 100%)",
+            maskImage: "linear-gradient(to bottom, black 0%, black 42%, transparent 70%)",
+            WebkitMaskImage: "linear-gradient(to bottom, black 0%, black 42%, transparent 70%)",
           }}
         />
       )}
