@@ -377,10 +377,10 @@ export default function Logo({
         <div
           style={{
             position: "absolute",
-            top: 0,
-            left: 0,
+            top: -padding,
+            left: -padding,
             width: "100vw",
-            height: 7 * cellSize + padding,
+            height: 7 * cellSize + padding * 2,
             pointerEvents: "none",
             zIndex: 1000,
             backgroundImage: `

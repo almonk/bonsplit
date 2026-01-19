@@ -936,6 +936,12 @@ controller.navigateFocus(direction: .down)`}
                   description="How tab content views are managed when switching tabs"
                   defaultValue=".recreateOnSwitch"
                 />
+                <Parameter
+                  name="newTabPosition"
+                  type="NewTabPosition"
+                  description="Where new tabs are inserted in the tab list"
+                  defaultValue=".current"
+                />
               </div>
 
               <div className="mt-6">
@@ -947,7 +953,8 @@ controller.navigateFocus(direction: .down)`}
     allowCloseTabs: true,
     allowCloseLastPane: false,
     autoCloseEmptyPanes: true,
-    contentViewLifecycle: .keepAllAlive
+    contentViewLifecycle: .keepAllAlive,
+    newTabPosition: .current
 )
 
 let controller = BonsplitController(configuration: config)`}</CodeBlock>
@@ -996,6 +1003,43 @@ let controller = BonsplitController(configuration: config)`}</CodeBlock>
                       <td className="py-2.5 px-4">Higher</td>
                       <td className="py-2.5 px-4">Full</td>
                       <td className="py-2.5 px-4">Complex views, forms</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <CategoryHeader>New Tab Position</CategoryHeader>
+
+              <p className="text-[14px] text-[#999] mt-2 mb-4 leading-relaxed">
+                Controls where new tabs are inserted in the tab list.
+              </p>
+
+              <div className="overflow-x-auto bg-[#111] rounded-md">
+                <table className="w-full text-[13px]">
+                  <thead>
+                    <tr>
+                      <th className="text-left py-2.5 px-4 font-medium text-[#999]">
+                        Mode
+                      </th>
+                      <th className="text-left py-2.5 px-4 font-medium text-[#999]">
+                        Behavior
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody className="text-[#999]">
+                    <tr>
+                      <td className="py-2.5 px-4">
+                        <code className="text-[#e06c75]">
+                          .current
+                        </code>
+                      </td>
+                      <td className="py-2.5 px-4">Insert after currently focused tab, or at end if none</td>
+                    </tr>
+                    <tr>
+                      <td className="py-2.5 px-4">
+                        <code className="text-[#e06c75]">.end</code>
+                      </td>
+                      <td className="py-2.5 px-4">Always insert at the end of the tab list</td>
                     </tr>
                   </tbody>
                 </table>
