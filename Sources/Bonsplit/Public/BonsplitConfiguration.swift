@@ -14,6 +14,16 @@ public enum ContentViewLifecycle: Sendable {
     case keepAllAlive
 }
 
+/// Controls the position where new tabs are created
+public enum NewTabPosition: Sendable {
+    /// Insert the new tab after the currently focused tab,
+    /// or at the end if there are no focused tabs.
+    case current
+
+    /// Insert the new tab at the end of the tab list.
+    case end
+}
+
 /// Configuration for the split tab bar appearance and behavior
 public struct BonsplitConfiguration: Sendable {
 
@@ -39,6 +49,9 @@ public struct BonsplitConfiguration: Sendable {
 
     /// Controls how tab content views are managed when switching tabs
     public var contentViewLifecycle: ContentViewLifecycle
+
+    /// Controls where new tabs are inserted in the tab list
+    public var newTabPosition: NewTabPosition
 
     // MARK: - Appearance
 
@@ -71,6 +84,7 @@ public struct BonsplitConfiguration: Sendable {
         allowCrossPaneTabMove: Bool = true,
         autoCloseEmptyPanes: Bool = true,
         contentViewLifecycle: ContentViewLifecycle = .recreateOnSwitch,
+        newTabPosition: NewTabPosition = .current,
         appearance: Appearance = .default
     ) {
         self.allowSplits = allowSplits
@@ -80,6 +94,7 @@ public struct BonsplitConfiguration: Sendable {
         self.allowCrossPaneTabMove = allowCrossPaneTabMove
         self.autoCloseEmptyPanes = autoCloseEmptyPanes
         self.contentViewLifecycle = contentViewLifecycle
+        self.newTabPosition = newTabPosition
         self.appearance = appearance
     }
 }

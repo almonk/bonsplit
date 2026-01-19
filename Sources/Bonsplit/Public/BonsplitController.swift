@@ -53,9 +53,26 @@ public final class BonsplitController {
             return nil
         }
 
+        // Calculate insertion index based on configuration
+        let insertIndex: Int?
+        switch configuration.newTabPosition {
+        case .current:
+            // Insert after the currently selected tab
+            if let paneState = internalController.rootNode.findPane(PaneID(id: targetPane.id)),
+               let selectedTabId = paneState.selectedTabId,
+               let currentIndex = paneState.tabs.firstIndex(where: { $0.id == selectedTabId }) {
+                insertIndex = currentIndex + 1
+            } else {
+                // No selected tab, append to end
+                insertIndex = nil
+            }
+        case .end:
+            insertIndex = nil
+        }
+
         // Create internal TabItem
         let tabItem = TabItem(id: tabId.id, title: title, icon: icon, isDirty: isDirty)
-        internalController.addTab(tabItem, toPane: PaneID(id: targetPane.id))
+        internalController.addTab(tabItem, toPane: PaneID(id: targetPane.id), atIndex: insertIndex)
 
         // Notify delegate
         delegate?.splitTabBar(self, didCreateTab: tab, inPane: targetPane)

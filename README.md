@@ -245,6 +245,7 @@ let config = BonsplitConfiguration(
     allowCrossPaneTabMove: true, // Enable moving tabs between panes
     autoCloseEmptyPanes: true,   // Close panes when last tab is closed
     contentViewLifecycle: .recreateOnSwitch,  // How tab views are managed
+    newTabPosition: .current,    // Where new tabs are inserted
     appearance: .default
 )
 
@@ -269,6 +270,23 @@ contentViewLifecycle: .keepAllAlive
 |------|--------|-------------------|----------|
 | `.recreateOnSwitch` | Low | None | Simple content, external state management |
 | `.keepAllAlive` | Higher | Full | Complex views, scroll positions, form inputs |
+
+#### New Tab Position
+
+Controls where new tabs are inserted in the tab list:
+
+```swift
+// Insert after currently focused tab (default)
+newTabPosition: .current
+
+// Always insert at the end of the tab list
+newTabPosition: .end
+```
+
+| Mode | Behavior |
+|------|----------|
+| `.current` | Insert after the currently focused tab, or at the end if no tab is focused |
+| `.end` | Always insert at the end of the tab list |
 
 #### Appearance Configuration
 
