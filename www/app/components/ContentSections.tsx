@@ -22,32 +22,34 @@ const APIExample = ({
   icon: React.ReactNode;
   relatedAPIs?: { label: string; href: string; isCallback?: boolean }[];
 }) => (
-  <div className="grid grid-cols-[40px_2fr_3fr] gap-6">
-    <div className="mt-2 w-10 h-10 rounded-xl bg-blue-500/15 flex items-center justify-center text-blue-500">{icon}</div>
-    <div className="mt-2">
-      <h4 className="text-[15px] font-semibold text-[#333] dark:text-[#eee]">
-        {title}
-      </h4>
-      <p className="text-[15px] text-[#666] dark:text-[#999]">{description}</p>
-      {relatedAPIs && relatedAPIs.length > 0 && (
-        <div className="flex flex-wrap gap-1.5 mt-2">
-          {relatedAPIs.map((api, i) => (
-            <a
-              key={i}
-              href={api.href}
-              className={`inline-block px-2 py-0.5 text-[12px] font-mono rounded transition-colors ${
-                api.isCallback
-                  ? "bg-emerald-600/10 text-emerald-600 hover:bg-emerald-600/20"
-                  : "bg-blue-500/15 text-blue-500 hover:bg-blue-500/25"
-              }`}
-            >
-              {api.label}
-            </a>
-          ))}
-        </div>
-      )}
+  <div className="flex flex-col gap-4">
+    <div className="flex gap-4">
+      <div className="shrink-0 w-10 h-10 rounded-xl bg-blue-500/15 flex items-center justify-center text-blue-500">{icon}</div>
+      <div>
+        <h4 className="text-[15px] font-semibold text-[#333] dark:text-[#eee]">
+          {title}
+        </h4>
+        <p className="text-[15px] text-[#666] dark:text-[#999]">{description}</p>
+        {relatedAPIs && relatedAPIs.length > 0 && (
+          <div className="flex flex-wrap gap-1.5 mt-2">
+            {relatedAPIs.map((api, i) => (
+              <a
+                key={i}
+                href={api.href}
+                className={`inline-block px-2 py-0.5 text-[12px] font-mono rounded transition-colors ${
+                  api.isCallback
+                    ? "bg-emerald-600/10 text-emerald-600 hover:bg-emerald-600/20"
+                    : "bg-blue-500/15 text-blue-500 hover:bg-blue-500/25"
+                }`}
+              >
+                {api.label}
+              </a>
+            ))}
+          </div>
+        )}
+      </div>
     </div>
-    <div>
+    <div className="md:pl-14">
       <CodeBlock>{code}</CodeBlock>
     </div>
   </div>
