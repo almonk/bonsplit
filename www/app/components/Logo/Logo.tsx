@@ -12,6 +12,7 @@ interface LogoProps {
   showGrid?: boolean;
   padding?: number;
   onIntroComplete?: () => void;
+  onIntroStart?: () => void;
 }
 
 export default function Logo({
@@ -21,6 +22,7 @@ export default function Logo({
   showGrid = false,
   padding = 180,
   onIntroComplete,
+  onIntroStart,
 }: LogoProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [blockSize, setBlockSize] = useState<number | null>(null);
@@ -60,6 +62,15 @@ export default function Logo({
   // Track previous resize state to detect when resize ends
   const prevIsResizing = useRef(false);
   const hasPlayedIntro = useRef(false);
+  const hasCalledIntroStart = useRef(false);
+
+  // Call onIntroStart when first row becomes visible
+  useEffect(() => {
+    if (visibleRows > 0 && !hasCalledIntroStart.current) {
+      hasCalledIntroStart.current = true;
+      onIntroStart?.();
+    }
+  }, [visibleRows, onIntroStart]);
 
   // Trigger shine animation
   const triggerShine = useCallback(() => {
@@ -358,21 +369,6 @@ export default function Logo({
 
   return (
     <div ref={containerRef} className="w-full relative">
-      {/* Overlay to hide initial layout flash - only covers logo area */}
-      <div
-        style={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: "100%",
-          backgroundColor: "var(--background)",
-          pointerEvents: "none",
-          zIndex: 9999,
-          opacity: isInitializing ? 1 : 0,
-          transition: "opacity 0.3s ease-out",
-        }}
-      />
       {showGrid && blockSize !== null && (
         <div
           style={{

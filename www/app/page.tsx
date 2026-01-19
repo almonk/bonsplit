@@ -11,6 +11,7 @@ const PADDING_RATIO = 0.08;
 
 export default function Home() {
   const [padding, setPadding] = useState(MAX_PADDING);
+  const [showOverlay, setShowOverlay] = useState(true);
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
@@ -44,13 +45,32 @@ export default function Home() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const handleIntroStart = useCallback(() => {
+    setShowOverlay(false);
+  }, []);
+
   const handleIntroComplete = useCallback(() => {
     videoRef.current?.play();
   }, []);
 
   return (
     <div className="bg-background">
-      <Hero padding={padding} onIntroComplete={handleIntroComplete} />
+      {/* Full-page overlay to hide initial layout flash */}
+      <div
+        style={{
+          position: "fixed",
+          top: 0,
+          left: 0,
+          width: "100vw",
+          height: "100vh",
+          backgroundColor: "var(--background)",
+          pointerEvents: "none",
+          zIndex: 9999,
+          opacity: showOverlay ? 1 : 0,
+          transition: "opacity 0.3s ease-out",
+        }}
+      />
+      <Hero padding={padding} onIntroComplete={handleIntroComplete} onIntroStart={handleIntroStart} />
       <div className="max-w-[1000px] mx-auto px-4">
         {/* Intro & Installation */}
         <section id="installation" className="mt-4 lg:-mt-12 mb-8 max-w-[600px] scroll-mt-8">
