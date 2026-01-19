@@ -18,7 +18,7 @@ export default function CodeBlock({ children, language = "swift", showLineNumber
   return (
     <div className="rounded-lg overflow-hidden">
       <Highlight
-        theme={themes.vsDark}
+        theme={themes.dracula}
         code={code}
         language={language}
       >

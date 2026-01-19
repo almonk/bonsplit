@@ -37,7 +37,7 @@ const APIExample = ({
               href={api.href}
               className={`inline-block px-2 py-0.5 text-[12px] font-mono rounded transition-colors ${
                 api.isCallback
-                  ? "bg-indigo-500/15 text-indigo-400 hover:bg-indigo-500/25"
+                  ? "bg-emerald-600/10 text-emerald-600 hover:bg-emerald-600/20"
                   : "bg-blue-500/15 text-blue-500 hover:bg-blue-500/25"
               }`}
             >
@@ -55,9 +55,7 @@ const APIExample = ({
 
 // API Reference Components
 const MethodSignature = ({ children }: { children: string }) => (
-  <code className="block bg-[#f8f9fa] dark:bg-[#111] px-4 py-3 rounded-md font-mono text-[13px] text-[#333] dark:text-[#ddd] whitespace-pre-wrap">
-    {children}
-  </code>
+  <CodeBlock>{children}</CodeBlock>
 );
 
 const Parameter = ({
