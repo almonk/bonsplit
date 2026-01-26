@@ -198,6 +198,11 @@ public final class BonsplitController {
         // Notify delegate
         delegate?.splitTabBar(self, didSplitPane: targetPaneId, newPane: newPaneId, orientation: orientation)
 
+        // Notify geometry change after a brief delay to allow layout
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) { [weak self] in
+            self?.notifyGeometryChange()
+        }
+
         return newPaneId
     }
 
@@ -220,6 +225,11 @@ public final class BonsplitController {
 
         // Notify delegate
         delegate?.splitTabBar(self, didClosePane: paneId)
+
+        // Notify geometry change after a brief delay to allow layout
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) { [weak self] in
+            self?.notifyGeometryChange()
+        }
 
         return true
     }
@@ -281,6 +291,152 @@ public final class BonsplitController {
             return nil
         }
         return Tab(from: selected)
+    }
+
+    // MARK: - Geometry Query API
+
+    /// Get current layout snapshot with pixel coordinates
+    public func layoutSnapshot() -> LayoutSnapshot {
+        let containerFrame = internalController.containerFrame
+        let paneBounds = internalController.rootNode.computePaneBounds()
+
+        let paneGeometries = paneBounds.map { bounds -> PaneGeometry in
+            let pane = internalController.rootNode.findPane(bounds.paneId)
+            let pixelFrame = PixelRect(
+                x: Double(bounds.bounds.minX * containerFrame.width + containerFrame.origin.x),
+                y: Double(bounds.bounds.minY * containerFrame.height + containerFrame.origin.y),
+                width: Double(bounds.bounds.width * containerFrame.width),
+                height: Double(bounds.bounds.height * containerFrame.height)
+            )
+            return PaneGeometry(
+                paneId: bounds.paneId.id.uuidString,
+                frame: pixelFrame,
+                selectedTabId: pane?.selectedTabId?.uuidString,
+                tabIds: pane?.tabs.map { $0.id.uuidString } ?? []
+            )
+        }
+
+        return LayoutSnapshot(
+            containerFrame: PixelRect(from: containerFrame),
+            panes: paneGeometries,
+            focusedPaneId: focusedPaneId?.id.uuidString,
+            timestamp: Date().timeIntervalSince1970
+        )
+    }
+
+    /// Get full tree structure for external consumption
+    public func treeSnapshot() -> ExternalTreeNode {
+        let containerFrame = internalController.containerFrame
+        return buildExternalTree(from: internalController.rootNode, containerFrame: containerFrame)
+    }
+
+    private func buildExternalTree(from node: SplitNode, containerFrame: CGRect, bounds: CGRect = CGRect(x: 0, y: 0, width: 1, height: 1)) -> ExternalTreeNode {
+        switch node {
+        case .pane(let paneState):
+            let pixelFrame = PixelRect(
+                x: Double(bounds.minX * containerFrame.width + containerFrame.origin.x),
+                y: Double(bounds.minY * containerFrame.height + containerFrame.origin.y),
+                width: Double(bounds.width * containerFrame.width),
+                height: Double(bounds.height * containerFrame.height)
+            )
+            let tabs = paneState.tabs.map { ExternalTab(id: $0.id.uuidString, title: $0.title) }
+            let paneNode = ExternalPaneNode(
+                id: paneState.id.id.uuidString,
+                frame: pixelFrame,
+                tabs: tabs,
+                selectedTabId: paneState.selectedTabId?.uuidString
+            )
+            return .pane(paneNode)
+
+        case .split(let splitState):
+            let dividerPos = splitState.dividerPosition
+            let firstBounds: CGRect
+            let secondBounds: CGRect
+
+            switch splitState.orientation {
+            case .horizontal:
+                firstBounds = CGRect(x: bounds.minX, y: bounds.minY,
+                                     width: bounds.width * dividerPos, height: bounds.height)
+                secondBounds = CGRect(x: bounds.minX + bounds.width * dividerPos, y: bounds.minY,
+                                      width: bounds.width * (1 - dividerPos), height: bounds.height)
+            case .vertical:
+                firstBounds = CGRect(x: bounds.minX, y: bounds.minY,
+                                     width: bounds.width, height: bounds.height * dividerPos)
+                secondBounds = CGRect(x: bounds.minX, y: bounds.minY + bounds.height * dividerPos,
+                                      width: bounds.width, height: bounds.height * (1 - dividerPos))
+            }
+
+            let splitNode = ExternalSplitNode(
+                id: splitState.id.uuidString,
+                orientation: splitState.orientation == .horizontal ? "horizontal" : "vertical",
+                dividerPosition: Double(splitState.dividerPosition),
+                first: buildExternalTree(from: splitState.first, containerFrame: containerFrame, bounds: firstBounds),
+                second: buildExternalTree(from: splitState.second, containerFrame: containerFrame, bounds: secondBounds)
+            )
+            return .split(splitNode)
+        }
+    }
+
+    /// Check if a split exists by ID
+    public func findSplit(_ splitId: UUID) -> Bool {
+        return internalController.findSplit(splitId) != nil
+    }
+
+    // MARK: - Geometry Update API
+
+    /// Set divider position for a split node (0.0-1.0)
+    /// - Parameters:
+    ///   - position: The new divider position (clamped to 0.1-0.9)
+    ///   - splitId: The UUID of the split to update
+    ///   - fromExternal: Set to true to suppress outgoing notifications (prevents loops)
+    /// - Returns: true if the split was found and updated
+    @discardableResult
+    public func setDividerPosition(_ position: CGFloat, forSplit splitId: UUID, fromExternal: Bool = false) -> Bool {
+        guard let split = internalController.findSplit(splitId) else { return false }
+
+        if fromExternal {
+            internalController.isExternalUpdateInProgress = true
+        }
+
+        // Clamp position to valid range
+        let clampedPosition = min(max(position, 0.1), 0.9)
+        split.dividerPosition = clampedPosition
+
+        if fromExternal {
+            // Use a slight delay to allow the UI to update before re-enabling notifications
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) { [weak self] in
+                self?.internalController.isExternalUpdateInProgress = false
+            }
+        }
+
+        return true
+    }
+
+    /// Update container frame (called when window moves/resizes)
+    public func setContainerFrame(_ frame: CGRect) {
+        internalController.containerFrame = frame
+    }
+
+    /// Notify geometry change to delegate (internal use)
+    /// - Parameter isDragging: Whether the change is due to active divider dragging
+    internal func notifyGeometryChange(isDragging: Bool = false) {
+        guard !internalController.isExternalUpdateInProgress else { return }
+
+        // If dragging, check if delegate wants notifications during drag
+        if isDragging {
+            let shouldNotify = delegate?.splitTabBar(self, shouldNotifyDuringDrag: true) ?? false
+            guard shouldNotify else { return }
+        }
+
+        // Debounce: skip if less than 50ms since last notification
+        let now = Date().timeIntervalSince1970
+        let debounceInterval: TimeInterval = 0.05
+        guard now - internalController.lastGeometryNotificationTime >= debounceInterval else { return }
+
+        internalController.lastGeometryNotificationTime = now
+
+        let snapshot = layoutSnapshot()
+        delegate?.splitTabBar(self, didChangeGeometry: snapshot)
     }
 
     // MARK: - Private Helpers

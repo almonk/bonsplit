@@ -13,6 +13,9 @@ class AppState: ObservableObject {
 
     @Published var tabContents: [TabID: TabContent] = [:]
 
+    /// Reference to debug state for geometry notifications
+    weak var debugState: DebugState?
+
     private var tabCounter = 0
 
     init() {
@@ -85,6 +88,7 @@ class AppState: ObservableObject {
 
 // MARK: - BonsplitDelegate
 
+@MainActor
 extension AppState: BonsplitDelegate {
     func splitTabBar(_ controller: BonsplitController,
                      shouldCloseTab tab: Bonsplit.Tab,
@@ -140,5 +144,18 @@ extension AppState: BonsplitDelegate {
 
         // Option 2: Leave the pane empty and let user create content
         // (The emptyPane view will be shown - see ContentView)
+    }
+
+    func splitTabBar(_ controller: BonsplitController,
+                     didChangeGeometry snapshot: LayoutSnapshot) {
+        debugState?.log("Geometry changed: \(snapshot.panes.count) panes")
+        debugState?.currentSnapshot = snapshot
+        debugState?.currentTree = controller.treeSnapshot()
+    }
+
+    func splitTabBar(_ controller: BonsplitController,
+                     shouldNotifyDuringDrag: Bool) -> Bool {
+        // Enable real-time notifications during drag
+        return true
     }
 }

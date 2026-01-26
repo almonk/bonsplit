@@ -9,6 +9,7 @@ struct SplitNodeView<Content: View, EmptyContent: View>: View {
     let emptyPaneBuilder: (PaneID) -> EmptyContent
     var showSplitButtons: Bool = true
     var contentViewLifecycle: ContentViewLifecycle = .recreateOnSwitch
+    var onGeometryChange: ((_ isDragging: Bool) -> Void)?
 
     var body: some View {
         switch node {
@@ -30,7 +31,8 @@ struct SplitNodeView<Content: View, EmptyContent: View>: View {
                 contentBuilder: contentBuilder,
                 emptyPaneBuilder: emptyPaneBuilder,
                 showSplitButtons: showSplitButtons,
-                contentViewLifecycle: contentViewLifecycle
+                contentViewLifecycle: contentViewLifecycle,
+                onGeometryChange: onGeometryChange
             )
         }
     }

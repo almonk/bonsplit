@@ -11,12 +11,16 @@
 		A1000002242424240001 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000012242424240001 /* ContentView.swift */; };
 		A1000003242424240001 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000013242424240001 /* AppState.swift */; };
 		A1000004242424240001 /* Bonsplit in Frameworks */ = {isa = PBXBuildFile; productRef = A1000024242424240001 /* Bonsplit */; };
+		A1000005242424240001 /* DebugState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000014242424240001 /* DebugState.swift */; };
+		A1000006242424240001 /* DebugWindowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000015242424240001 /* DebugWindowView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A1000011242424240001 /* BonsplitExampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BonsplitExampleApp.swift; sourceTree = "<group>"; };
 		A1000012242424240001 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		A1000013242424240001 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		A1000014242424240001 /* DebugState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugState.swift; sourceTree = "<group>"; };
+		A1000015242424240001 /* DebugWindowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugWindowView.swift; sourceTree = "<group>"; };
 		A1000021242424240001 /* BonsplitExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BonsplitExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -46,6 +50,8 @@
 				A1000011242424240001 /* BonsplitExampleApp.swift */,
 				A1000012242424240001 /* ContentView.swift */,
 				A1000013242424240001 /* AppState.swift */,
+				A1000014242424240001 /* DebugState.swift */,
+				A1000015242424240001 /* DebugWindowView.swift */,
 			);
 			path = BonsplitExample;
 			sourceTree = "<group>";
@@ -119,6 +125,8 @@
 				A1000001242424240001 /* BonsplitExampleApp.swift in Sources */,
 				A1000002242424240001 /* ContentView.swift in Sources */,
 				A1000003242424240001 /* AppState.swift in Sources */,
+				A1000005242424240001 /* DebugState.swift in Sources */,
+				A1000006242424240001 /* DebugWindowView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

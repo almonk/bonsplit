@@ -48,6 +48,14 @@ public protocol BonsplitDelegate: AnyObject {
 
     /// Called when focus changes to a different pane.
     func splitTabBar(_ controller: BonsplitController, didFocusPane pane: PaneID)
+
+    // MARK: - Geometry
+
+    /// Called when any pane geometry changes (resize, split, close)
+    func splitTabBar(_ controller: BonsplitController, didChangeGeometry snapshot: LayoutSnapshot)
+
+    /// Called to check if notifications should be sent during divider drag (opt-in for real-time sync)
+    func splitTabBar(_ controller: BonsplitController, shouldNotifyDuringDrag: Bool) -> Bool
 }
 
 // MARK: - Default Implementations (all methods optional)
@@ -64,4 +72,6 @@ public extension BonsplitDelegate {
     func splitTabBar(_ controller: BonsplitController, didSplitPane originalPane: PaneID, newPane: PaneID, orientation: SplitOrientation) {}
     func splitTabBar(_ controller: BonsplitController, didClosePane paneId: PaneID) {}
     func splitTabBar(_ controller: BonsplitController, didFocusPane pane: PaneID) {}
+    func splitTabBar(_ controller: BonsplitController, didChangeGeometry snapshot: LayoutSnapshot) {}
+    func splitTabBar(_ controller: BonsplitController, shouldNotifyDuringDrag: Bool) -> Bool { false }
 }

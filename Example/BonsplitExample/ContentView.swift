@@ -3,6 +3,7 @@ import Bonsplit
 
 struct ContentView: View {
     @StateObject private var appState = AppState()
+    @ObservedObject var debugState: DebugState
 
     var body: some View {
         BonsplitView(controller: appState.controller) { tab, paneId in
@@ -17,6 +18,9 @@ struct ContentView: View {
             if appState.controller.allTabIds.isEmpty {
                 appState.newTab()
             }
+            // Wire up debug state
+            appState.debugState = debugState
+            debugState.controller = appState.controller
         }
     }
 }
@@ -97,5 +101,5 @@ struct EmptyPaneView: View {
 }
 
 #Preview {
-    ContentView()
+    ContentView(debugState: DebugState())
 }

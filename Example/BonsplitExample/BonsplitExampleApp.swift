@@ -3,14 +3,35 @@ import Bonsplit
 
 @main
 struct BonsplitExampleApp: App {
+    @StateObject private var debugState = DebugState()
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(debugState: debugState)
         }
         .windowStyle(.automatic)
         .windowToolbarStyle(.unified)
         .commands {
             AppCommands()
+            DebugCommands()
+        }
+
+        Window("Geometry Debug", id: "debug") {
+            DebugWindowView(debugState: debugState)
+        }
+        .defaultSize(width: 400, height: 600)
+    }
+}
+
+struct DebugCommands: Commands {
+    @Environment(\.openWindow) var openWindow
+
+    var body: some Commands {
+        CommandMenu("Debug") {
+            Button("Show Geometry Debug") {
+                openWindow(id: "debug")
+            }
+            .keyboardShortcut("d", modifiers: [.command, .option])
         }
     }
 }

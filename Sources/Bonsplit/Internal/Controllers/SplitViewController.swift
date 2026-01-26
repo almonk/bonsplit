@@ -17,6 +17,18 @@ final class SplitViewController {
     /// Source pane of the dragging tab
     var dragSourcePaneId: PaneID?
 
+    /// Current frame of the entire split view container
+    var containerFrame: CGRect = .zero
+
+    /// Flag to prevent notification loops during external updates
+    var isExternalUpdateInProgress: Bool = false
+
+    /// Timestamp of last geometry notification for debouncing
+    var lastGeometryNotificationTime: TimeInterval = 0
+
+    /// Callback for geometry changes
+    var onGeometryChange: (() -> Void)?
+
     init(rootNode: SplitNode? = nil) {
         if let rootNode {
             self.rootNode = rootNode
@@ -385,5 +397,41 @@ final class SplitViewController {
 
         let newIndex = currentIndex < pane.tabs.count - 1 ? currentIndex + 1 : 0
         pane.selectTab(pane.tabs[newIndex].id)
+    }
+
+    // MARK: - Split State Access
+
+    /// Find a split state by its UUID
+    func findSplit(_ splitId: UUID) -> SplitState? {
+        return findSplitRecursively(in: rootNode, id: splitId)
+    }
+
+    private func findSplitRecursively(in node: SplitNode, id: UUID) -> SplitState? {
+        switch node {
+        case .pane:
+            return nil
+        case .split(let splitState):
+            if splitState.id == id {
+                return splitState
+            }
+            if let found = findSplitRecursively(in: splitState.first, id: id) {
+                return found
+            }
+            return findSplitRecursively(in: splitState.second, id: id)
+        }
+    }
+
+    /// Get all split states in the tree
+    var allSplits: [SplitState] {
+        return collectSplits(from: rootNode)
+    }
+
+    private func collectSplits(from node: SplitNode) -> [SplitState] {
+        switch node {
+        case .pane:
+            return []
+        case .split(let splitState):
+            return [splitState] + collectSplits(from: splitState.first) + collectSplits(from: splitState.second)
+        }
     }
 }

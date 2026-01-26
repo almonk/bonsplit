@@ -7,12 +7,28 @@ struct SplitViewContainer<Content: View, EmptyContent: View>: View {
     let emptyPaneBuilder: (PaneID) -> EmptyContent
     var showSplitButtons: Bool = true
     var contentViewLifecycle: ContentViewLifecycle = .recreateOnSwitch
+    var onGeometryChange: ((_ isDragging: Bool) -> Void)?
 
     var body: some View {
-        splitNodeContent
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .focusable()
-            .focusEffectDisabled()
+        GeometryReader { geometry in
+            splitNodeContent
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .focusable()
+                .focusEffectDisabled()
+                .onChange(of: geometry.size) { _, newSize in
+                    updateContainerFrame(geometry: geometry)
+                }
+                .onAppear {
+                    updateContainerFrame(geometry: geometry)
+                }
+        }
+    }
+
+    private func updateContainerFrame(geometry: GeometryProxy) {
+        // Get frame in global coordinate space
+        let frame = geometry.frame(in: .global)
+        controller.containerFrame = frame
+        onGeometryChange?(false)  // Container resize is not a drag
     }
 
     @ViewBuilder
@@ -23,7 +39,8 @@ struct SplitViewContainer<Content: View, EmptyContent: View>: View {
             contentBuilder: contentBuilder,
             emptyPaneBuilder: emptyPaneBuilder,
             showSplitButtons: showSplitButtons,
-            contentViewLifecycle: contentViewLifecycle
+            contentViewLifecycle: contentViewLifecycle,
+            onGeometryChange: onGeometryChange
         )
     }
 }

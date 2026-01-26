@@ -9,9 +9,11 @@ struct SplitContainerView<Content: View, EmptyContent: View>: NSViewRepresentabl
     let emptyPaneBuilder: (PaneID) -> EmptyContent
     var showSplitButtons: Bool = true
     var contentViewLifecycle: ContentViewLifecycle = .recreateOnSwitch
+    /// Callback when geometry changes. Bool indicates if change is during active divider drag.
+    var onGeometryChange: ((_ isDragging: Bool) -> Void)?
 
     func makeCoordinator() -> Coordinator {
-        Coordinator(splitState: splitState)
+        Coordinator(splitState: splitState, onGeometryChange: onGeometryChange)
     }
 
     func makeNSView(context: Context) -> NSSplitView {
@@ -97,6 +99,11 @@ struct SplitContainerView<Content: View, EmptyContent: View>: NSViewRepresentabl
             updateHostingView(subviews[0], for: splitState.first)
             updateHostingView(subviews[1], for: splitState.second)
         }
+
+        // Access dividerPosition to ensure SwiftUI tracks this dependency
+        // Then sync if the position changed externally
+        let currentPosition = splitState.dividerPosition
+        context.coordinator.syncPosition(currentPosition, in: splitView)
     }
 
     // MARK: - Helpers
@@ -133,7 +140,8 @@ struct SplitContainerView<Content: View, EmptyContent: View>: NSViewRepresentabl
                 contentBuilder: contentBuilder,
                 emptyPaneBuilder: emptyPaneBuilder,
                 showSplitButtons: showSplitButtons,
-                contentViewLifecycle: contentViewLifecycle
+                contentViewLifecycle: contentViewLifecycle,
+                onGeometryChange: onGeometryChange
             )
         }
     }
@@ -144,9 +152,42 @@ struct SplitContainerView<Content: View, EmptyContent: View>: NSViewRepresentabl
         let splitState: SplitState
         weak var splitView: NSSplitView?
         var isAnimating = false
+        var onGeometryChange: ((_ isDragging: Bool) -> Void)?
+        /// Track last applied position to detect external changes
+        var lastAppliedPosition: CGFloat = 0.5
+        /// Track if user is actively dragging the divider
+        var isDragging = false
 
-        init(splitState: SplitState) {
+        init(splitState: SplitState, onGeometryChange: ((_ isDragging: Bool) -> Void)?) {
             self.splitState = splitState
+            self.onGeometryChange = onGeometryChange
+            self.lastAppliedPosition = splitState.dividerPosition
+        }
+
+        /// Apply external position changes to the NSSplitView
+        func syncPosition(_ statePosition: CGFloat, in splitView: NSSplitView) {
+            guard !isAnimating else { return }
+
+            // Check if position changed externally (not from user drag)
+            if abs(statePosition - lastAppliedPosition) > 0.01 {
+                let totalSize = splitState.orientation == .horizontal
+                    ? splitView.bounds.width
+                    : splitView.bounds.height
+
+                guard totalSize > 0 else { return }
+
+                let pixelPosition = totalSize * statePosition
+                splitView.setPosition(pixelPosition, ofDividerAt: 0)
+                splitView.layoutSubtreeIfNeeded()
+                lastAppliedPosition = statePosition
+            }
+        }
+
+        func splitViewWillResizeSubviews(_ notification: Notification) {
+            // Detect if this is a user drag by checking mouse state
+            if let event = NSApp.currentEvent, event.type == .leftMouseDragged {
+                isDragging = true
+            }
         }
 
         func splitViewDidResizeSubviews(_ notification: Notification) {
@@ -165,8 +206,19 @@ struct SplitContainerView<Content: View, EmptyContent: View>: NSViewRepresentabl
                     ? firstSubview.frame.width
                     : firstSubview.frame.height
 
+                let normalizedPosition = dividerPosition / totalSize
+
+                // Check if drag ended (mouse up)
+                let wasDragging = isDragging
+                if let event = NSApp.currentEvent, event.type == .leftMouseUp {
+                    isDragging = false
+                }
+
                 Task { @MainActor in
-                    self.splitState.dividerPosition = dividerPosition / totalSize
+                    self.splitState.dividerPosition = normalizedPosition
+                    self.lastAppliedPosition = normalizedPosition
+                    // Notify geometry change with drag state
+                    self.onGeometryChange?(wasDragging)
                 }
             }
         }
