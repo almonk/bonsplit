@@ -1,4 +1,5 @@
 import SwiftUI
+import AppKit
 import Bonsplit
 
 struct DebugWindowView: View {
@@ -6,32 +7,23 @@ struct DebugWindowView: View {
 
     var body: some View {
         VStack(spacing: 0) {
-            // Control Buttons
-            HStack {
-                Button("Refresh") { debugState.refresh() }
-                Button("Clear Logs") { debugState.logs.removeAll() }
-                Spacer()
-            }
-            .padding(8)
-
-            Divider()
-
             // Split between geometry and logs
             VSplitView {
                 // Pane Geometry Section
                 if let snapshot = debugState.currentSnapshot {
                     GeometrySection(snapshot: snapshot, debugState: debugState)
                 } else {
-                    Text("No snapshot - click Refresh")
+                    Text("No snapshot - waiting for layout")
                         .foregroundStyle(.secondary)
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
                 }
 
                 // Live Log Section
-                LogSection(logs: debugState.logs)
+                LogSection(logs: debugState.logs, onClear: { debugState.logs.removeAll() })
             }
         }
         .frame(minWidth: 350, minHeight: 400)
+        .modifier(UtilityWindowModifier())
     }
 }
 
@@ -42,24 +34,24 @@ struct GeometrySection: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 8) {
-                Text("Layout Snapshot").font(.headline)
+                Text("Layout Snapshot").font(.subheadline)
                 Text("Container: \(Int(snapshot.containerFrame.width)) x \(Int(snapshot.containerFrame.height)) at (\(Int(snapshot.containerFrame.x)), \(Int(snapshot.containerFrame.y)))")
-                    .font(.caption.monospaced())
+                    .font(.caption2.monospaced())
 
                 Divider()
 
-                Text("Panes (\(snapshot.panes.count))").font(.subheadline)
+                Text("Panes (\(snapshot.panes.count))").font(.caption)
 
                 ForEach(snapshot.panes, id: \.paneId) { pane in
                     HStack {
                         VStack(alignment: .leading, spacing: 2) {
                             HStack {
                                 Text(String(pane.paneId.prefix(8)) + "...")
-                                    .font(.caption.monospaced())
+                                    .font(.caption2.monospaced())
                                 if pane.paneId == snapshot.focusedPaneId {
                                     Image(systemName: "star.fill")
                                         .foregroundColor(.yellow)
-                                        .font(.caption)
+                                        .font(.caption2)
                                 }
                             }
                             Text("pos: (\(Int(pane.frame.x)), \(Int(pane.frame.y)))")
@@ -80,7 +72,7 @@ struct GeometrySection: View {
                 // Divider controls (if splits exist)
                 if let tree = debugState.currentTree {
                     Divider()
-                    Text("Splits").font(.subheadline)
+                    Text("Splits").font(.caption)
                     SplitControlsView(node: tree, debugState: debugState)
                 }
             }
@@ -122,13 +114,13 @@ struct DividerSlider: View {
         VStack(alignment: .leading, spacing: 4) {
             HStack {
                 Text("\(split.id.prefix(8))...")
-                    .font(.caption.monospaced())
+                    .font(.caption2.monospaced())
                 Text("(\(split.orientation))")
                     .font(.caption2)
                     .foregroundStyle(.secondary)
                 Spacer()
                 Text(String(format: "%.2f", position))
-                    .font(.caption.monospaced())
+                    .font(.caption2.monospaced())
             }
             Slider(value: $position, in: 0.1...0.9)
                 .onChange(of: position) { _, newValue in
@@ -138,22 +130,33 @@ struct DividerSlider: View {
                 }
         }
         .padding(.vertical, 2)
+        .onChange(of: split.dividerPosition) { _, newValue in
+            position = newValue
+        }
     }
 }
 
 struct LogSection: View {
     let logs: [String]
+    let onClear: () -> Void
 
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
-            Text("Event Log").font(.headline).padding(8)
+            HStack {
+                Text("Event Log").font(.subheadline)
+                Spacer()
+                Button("Clear") { onClear() }
+                    .buttonStyle(.plain)
+                    .font(.caption)
+            }
+            .padding(8)
             Divider()
             ScrollViewReader { proxy in
                 ScrollView {
                     LazyVStack(alignment: .leading, spacing: 2) {
                         ForEach(Array(logs.enumerated()), id: \.offset) { index, log in
                             Text(log)
-                                .font(.caption.monospaced())
+                                .font(.caption2.monospaced())
                                 .textSelection(.enabled)
                                 .id(index)
                         }
@@ -168,6 +171,26 @@ struct LogSection: View {
             }
         }
     }
+}
+
+struct UtilityWindowModifier: ViewModifier {
+    func body(content: Content) -> some View {
+        content.background(WindowAccessor())
+    }
+}
+
+struct WindowAccessor: NSViewRepresentable {
+    func makeNSView(context: Context) -> NSView {
+        let view = NSView()
+        DispatchQueue.main.async {
+            if let window = view.window {
+                window.styleMask.insert(.utilityWindow)
+            }
+        }
+        return view
+    }
+
+    func updateNSView(_ nsView: NSView, context: Context) {}
 }
 
 #Preview {

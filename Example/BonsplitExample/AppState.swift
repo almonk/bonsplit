@@ -38,6 +38,7 @@ class AppState: ObservableObject {
 
         if let tabId = controller.createTab(title: title, icon: "doc.text") {
             tabContents[tabId] = TabContent(text: sampleText(for: tabCounter))
+            debugState?.refresh()
         }
     }
 
@@ -64,6 +65,7 @@ class AppState: ObservableObject {
 
         if let tabId = controller.createTab(title: title, icon: "doc.text", inPane: paneId) {
             tabContents[tabId] = TabContent(text: sampleText(for: tabCounter))
+            debugState?.refresh()
         }
     }
 
@@ -124,6 +126,7 @@ extension AppState: BonsplitDelegate {
                      fromPane pane: PaneID) {
         // Clean up content when tab is closed
         tabContents.removeValue(forKey: tabId)
+        debugState?.refresh()
     }
 
     func splitTabBar(_ controller: BonsplitController,
