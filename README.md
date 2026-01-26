@@ -160,7 +160,7 @@ let selected = controller.selectedTab(inPane: paneId)
 
 #### Geometry & Synchronization
 
-Query pane geometry and synchronize with external programs (e.g., window managers like yabai):
+Query pane geometry and save/restore layout configurations:
 
 ```swift
 // Get flat list of pane geometries with pixel coordinates
@@ -270,9 +270,10 @@ Receive callbacks when pane geometry changes:
 ```swift
 func splitTabBar(_ controller: BonsplitController,
                  didChangeGeometry snapshot: LayoutSnapshot) {
-    // Sync with external system (e.g., yabai)
-    for pane in snapshot.panes {
-        externalSystem.updatePane(pane.paneId, frame: pane.frame)
+    // Save layout configuration
+    let encoder = JSONEncoder()
+    if let data = try? encoder.encode(snapshot) {
+        UserDefaults.standard.set(data, forKey: "savedLayout")
     }
 }
 

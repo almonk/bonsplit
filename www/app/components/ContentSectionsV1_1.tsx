@@ -1014,7 +1014,7 @@ controller.setDividerPosition(0.3, forSplit: splitId, fromExternal: true)`}
                 name="didChangeGeometry"
                 id="api-didChangeGeometry"
                 signature="func splitTabBar(_ controller: BonsplitController, didChangeGeometry snapshot: LayoutSnapshot)"
-                description="Called when any pane geometry changes (resize, split, close, divider drag). Use this to synchronize with external systems like window managers."
+                description="Called when any pane geometry changes (resize, split, close, divider drag). Use this to save and restore layout configurations."
                 parameters={[
                   {
                     name: "snapshot",
@@ -1024,9 +1024,10 @@ controller.setDividerPosition(0.3, forSplit: splitId, fromExternal: true)`}
                 ]}
                 example={`func splitTabBar(_ controller: BonsplitController,
                  didChangeGeometry snapshot: LayoutSnapshot) {
-    // Sync with external system (e.g., yabai)
-    for pane in snapshot.panes {
-        externalSystem.updatePane(pane.paneId, frame: pane.frame)
+    // Save layout configuration
+    let encoder = JSONEncoder()
+    if let data = try? encoder.encode(snapshot) {
+        UserDefaults.standard.set(data, forKey: "savedLayout")
     }
 }`}
               />
