@@ -3,8 +3,10 @@ import UniformTypeIdentifiers
 
 /// Tab bar view with scrollable tabs, drag/drop support, and split buttons
 struct TabBarView: View {
+    @Environment(BonsplitController.self) private var controller
+    @Environment(SplitViewController.self) private var splitViewController
+    
     @Bindable var pane: PaneState
-    let controller: SplitViewController
     let isFocused: Bool
     var showSplitButtons: Bool = true
 
@@ -23,7 +25,7 @@ struct TabBarView: View {
 
     /// Whether this tab bar should show full saturation (focused or drag source)
     private var shouldShowFullSaturation: Bool {
-        isFocused || controller.dragSourcePaneId == pane.id
+        isFocused || splitViewController.dragSourcePaneId == pane.id
     }
 
     var body: some View {
@@ -107,7 +109,7 @@ struct TabBarView: View {
             },
             onClose: {
                 withAnimation(.easeInOut(duration: TabBarMetrics.closeDuration)) {
-                    controller.closeTab(tab.id, inPane: pane.id)
+                    _ = controller.closeTab(TabID(id: tab.id), inPane: pane.id)
                 }
             }
         )
@@ -119,7 +121,7 @@ struct TabBarView: View {
         .onDrop(of: [.text], delegate: TabDropDelegate(
             targetIndex: index,
             pane: pane,
-            controller: controller,
+            controller: splitViewController,
             dropTargetIndex: $dropTargetIndex
         ))
         .overlay(alignment: .leading) {
@@ -133,8 +135,8 @@ struct TabBarView: View {
 
     private func createItemProvider(for tab: TabItem) -> NSItemProvider {
         // Set drag source for visual feedback
-        controller.draggingTab = tab
-        controller.dragSourcePaneId = pane.id
+        splitViewController.draggingTab = tab
+        splitViewController.dragSourcePaneId = pane.id
 
         let transfer = TabTransferData(tab: tab, sourcePaneId: pane.id.id)
         if let data = try? JSONEncoder().encode(transfer),
@@ -155,7 +157,7 @@ struct TabBarView: View {
             .onDrop(of: [.text], delegate: TabDropDelegate(
                 targetIndex: pane.tabs.count,
                 pane: pane,
-                controller: controller,
+                controller: splitViewController,
                 dropTargetIndex: $dropTargetIndex
             ))
             .overlay(alignment: .leading) {

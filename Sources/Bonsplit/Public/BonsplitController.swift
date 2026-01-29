@@ -111,7 +111,26 @@ public final class BonsplitController {
     @discardableResult
     public func closeTab(_ tabId: TabID) -> Bool {
         guard let (pane, tabIndex) = findTabInternal(tabId) else { return false }
-
+        return closeTab(tabId, with: tabIndex, in: pane)
+    }
+    
+    /// Close a tab by ID in a specific pane.
+    /// - Parameter tabId: The tab to close
+    /// - Parameter paneId: The pane in which to close the tab
+    public func closeTab(_ tabId: TabID, inPane paneId: PaneID) -> Bool {
+        guard let pane = internalController.rootNode.findPane(paneId),
+              let tabIndex = pane.tabs.firstIndex(where: { $0.id == tabId.id }) else {
+            return false
+        }
+        
+        return closeTab(tabId, with: tabIndex, in: pane)
+    }
+    
+    /// Internal helper to close a tab given its index in a pane
+    /// - Parameter tabId: The tab to close
+    /// - Parameter tabIndex: The position of the tab within the pane
+    /// - Parameter pane: The pane in which to close the tab
+    private func closeTab(_ tabId: TabID, with tabIndex: Int, in pane: PaneState) -> Bool {
         let tabItem = pane.tabs[tabIndex]
         let tab = Tab(from: tabItem)
         let paneId = pane.id
