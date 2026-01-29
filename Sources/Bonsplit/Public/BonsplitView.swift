@@ -39,7 +39,6 @@ public struct BonsplitView<Content: View, EmptyContent: View>: View {
 
     public var body: some View {
         SplitViewContainer(
-            controller: controller.internalController,
             contentBuilder: { tabItem, paneId in
                 contentBuilder(Tab(from: tabItem), PaneID(id: paneId.id))
             },
@@ -52,6 +51,8 @@ public struct BonsplitView<Content: View, EmptyContent: View>: View {
                 controller?.notifyGeometryChange(isDragging: isDragging)
             }
         )
+        .environment(controller)
+        .environment(controller.internalController)
     }
 }
 

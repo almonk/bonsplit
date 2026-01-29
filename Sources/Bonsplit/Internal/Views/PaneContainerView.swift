@@ -45,7 +45,6 @@ struct PaneContainerView<Content: View, EmptyContent: View>: View {
             // Tab bar
             TabBarView(
                 pane: pane,
-                controller: controller,
                 isFocused: isFocused,
                 showSplitButtons: showSplitButtons
             )
