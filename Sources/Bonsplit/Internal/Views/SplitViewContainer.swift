@@ -34,13 +34,26 @@ struct SplitViewContainer<Content: View, EmptyContent: View>: View {
 
     @ViewBuilder
     private var splitNodeContent: some View {
-        SplitNodeView(
-            node: controller.rootNode,
-            contentBuilder: contentBuilder,
-            emptyPaneBuilder: emptyPaneBuilder,
-            showSplitButtons: showSplitButtons,
-            contentViewLifecycle: contentViewLifecycle,
-            onGeometryChange: onGeometryChange
-        )
+        if let zoomedPaneId = controller.zoomedPaneId,
+           let zoomedPane = controller.rootNode.findPane(zoomedPaneId) {
+            // Render ONLY the zoomed pane — siblings absent from view hierarchy
+            SinglePaneWrapper(
+                pane: zoomedPane,
+                contentBuilder: contentBuilder,
+                emptyPaneBuilder: emptyPaneBuilder,
+                showSplitButtons: showSplitButtons,
+                contentViewLifecycle: contentViewLifecycle
+            )
+        } else {
+            // Normal: render the full tree from root
+            SplitNodeView(
+                node: controller.rootNode,
+                contentBuilder: contentBuilder,
+                emptyPaneBuilder: emptyPaneBuilder,
+                showSplitButtons: showSplitButtons,
+                contentViewLifecycle: contentViewLifecycle,
+                onGeometryChange: onGeometryChange
+            )
+        }
     }
 }

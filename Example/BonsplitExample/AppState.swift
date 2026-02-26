@@ -48,6 +48,10 @@ class AppState: ObservableObject {
         _ = controller.closeTab(tab.id)
     }
 
+    func toggleZoom() {
+        controller.toggleZoom()
+    }
+
     func splitHorizontal() {
         // Split creates empty pane - we create a tab via the delegate callback
         _ = controller.splitPane(orientation: .horizontal)

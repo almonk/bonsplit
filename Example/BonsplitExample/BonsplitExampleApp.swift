@@ -64,6 +64,13 @@ struct AppCommands: Commands {
             .keyboardShortcut("]", modifiers: [.command, .shift])
         }
 
+        CommandMenu("View") {
+            Button("Toggle Zoom") {
+                appState?.toggleZoom()
+            }
+            .keyboardShortcut("z", modifiers: [.command, .shift])
+        }
+
         CommandMenu("Split") {
             Button("Split Right") {
                 appState?.splitHorizontal()
