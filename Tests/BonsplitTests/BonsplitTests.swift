@@ -170,7 +170,67 @@ final class BonsplitTests: XCTestCase {
         XCTAssertTrue(config.preserveZoomOnNavigation)
     }
 
+    @MainActor
+    func testSplitWhileZoomedClearsZoom() {
+        let (controller, paneA, _) = makeTwoPaneController()
+
+        controller.toggleZoom(paneId: paneA)
+        XCTAssertTrue(controller.isZoomed)
+
+        controller.splitPane(paneA, orientation: .horizontal)
+        XCTAssertFalse(controller.isZoomed)
+    }
+
+    @MainActor
+    func testCloseZoomedPaneClearsZoom() {
+        let (controller, paneA, _) = makeTwoPaneController()
+
+        controller.toggleZoom(paneId: paneA)
+        XCTAssertTrue(controller.isZoomed)
+
+        controller.closePane(paneA)
+        XCTAssertFalse(controller.isZoomed)
+        XCTAssertNil(controller.zoomedPaneId)
+    }
+
+    @MainActor
+    func testCloseSiblingPreservesZoom() {
+        let (controller, paneA, paneB) = makeThreePaneController()
+
+        controller.toggleZoom(paneId: paneA)
+        XCTAssertTrue(controller.isZoomed)
+
+        // Close a sibling — zoom should survive
+        controller.closePane(paneB)
+        XCTAssertTrue(controller.isZoomed)
+        XCTAssertEqual(controller.zoomedPaneId, paneA)
+    }
+
+    @MainActor
+    func testCloseSiblingCollapseClearsZoom() {
+        let (controller, paneA, paneB) = makeTwoPaneController()
+
+        controller.toggleZoom(paneId: paneA)
+        XCTAssertTrue(controller.isZoomed)
+
+        // Close the only sibling — tree collapses to single pane
+        controller.closePane(paneB)
+        XCTAssertFalse(controller.isZoomed)
+    }
+
     // MARK: - Test Helpers
+
+    @MainActor
+    private func makeThreePaneController() -> (BonsplitController, PaneID, PaneID) {
+        let controller = BonsplitController()
+        let paneA = controller.focusedPaneId!
+        controller.splitPane(paneA, orientation: .horizontal)
+        let paneB = controller.focusedPaneId!
+        // Split paneB to get a third pane — paneA is still intact
+        controller.splitPane(paneB, orientation: .horizontal)
+        // Returns paneA and paneB (paneC exists but we don't need its ID)
+        return (controller, paneA, paneB)
+    }
 
     @MainActor
     private func makeTwoPaneController() -> (BonsplitController, PaneID, PaneID) {

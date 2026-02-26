@@ -98,6 +98,7 @@ final class SplitViewController {
 
     /// Split the specified pane in the given orientation
     func splitPane(_ paneId: PaneID, orientation: SplitOrientation, with newTab: TabItem? = nil) {
+        zoomedPaneId = nil
         rootNode = splitNodeRecursively(
             node: rootNode,
             targetPaneId: paneId,
@@ -158,6 +159,7 @@ final class SplitViewController {
 
     /// Split a pane with a specific tab, optionally inserting the new pane first
     func splitPaneWithTab(_ paneId: PaneID, orientation: SplitOrientation, tab: TabItem, insertFirst: Bool) {
+        zoomedPaneId = nil
         rootNode = splitNodeWithTabRecursively(
             node: rootNode,
             targetPaneId: paneId,
@@ -244,6 +246,13 @@ final class SplitViewController {
             focusedPaneId = siblingPaneId
         } else if let firstPane = rootNode.allPaneIds.first {
             focusedPaneId = firstPane
+        }
+
+        // Clear zoom if zoomed pane was closed or tree collapsed to single pane
+        if let zid = zoomedPaneId {
+            if rootNode.findPane(zid) == nil || rootNode.allPaneIds.count <= 1 {
+                zoomedPaneId = nil
+            }
         }
     }
 
