@@ -162,6 +162,18 @@ extension AppState: BonsplitDelegate {
     }
 
     func splitTabBar(_ controller: BonsplitController,
+                     didZoomPane paneId: PaneID) {
+        debugState?.log("🔍 didZoomPane: pane \(paneId.hashValue)")
+        debugState?.refresh()
+    }
+
+    func splitTabBar(_ controller: BonsplitController,
+                     didUnzoomPane paneId: PaneID) {
+        debugState?.log("🔍 didUnzoomPane: pane \(paneId.hashValue)")
+        debugState?.refresh()
+    }
+
+    func splitTabBar(_ controller: BonsplitController,
                      didChangeGeometry snapshot: LayoutSnapshot) {
         debugState?.log("Geometry changed: \(snapshot.panes.count) panes")
         debugState?.currentSnapshot = snapshot
