@@ -309,6 +309,24 @@ public final class BonsplitController {
 
     /// Navigate focus in a direction
     public func navigateFocus(direction: NavigationDirection) {
+        if internalController.zoomedPaneId != nil {
+            if configuration.preserveZoomOnNavigation {
+                // Navigate, then move zoom to the new focused pane
+                internalController.navigateFocus(direction: direction)
+                internalController.zoomedPaneId = internalController.focusedPaneId
+            } else {
+                // Unzoom first, then navigate
+                let previousZoomedId = internalController.zoomedPaneId!
+                internalController.zoomedPaneId = nil
+                delegate?.splitTabBar(self, didUnzoomPane: previousZoomedId)
+                internalController.navigateFocus(direction: direction)
+            }
+            if let focusedPaneId {
+                delegate?.splitTabBar(self, didFocusPane: focusedPaneId)
+            }
+            return
+        }
+
         internalController.navigateFocus(direction: direction)
         if let focusedPaneId {
             delegate?.splitTabBar(self, didFocusPane: focusedPaneId)

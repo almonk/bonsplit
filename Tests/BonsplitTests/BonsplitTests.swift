@@ -218,6 +218,39 @@ final class BonsplitTests: XCTestCase {
         XCTAssertFalse(controller.isZoomed)
     }
 
+    @MainActor
+    func testNavigateWhileZoomedUnzooms() {
+        let (controller, paneA, _) = makeTwoPaneController()
+        // Focus paneA and zoom it
+        controller.focusPane(paneA)
+        controller.toggleZoom(paneId: paneA)
+        XCTAssertTrue(controller.isZoomed)
+
+        controller.navigateFocus(direction: .right)
+        XCTAssertFalse(controller.isZoomed)
+    }
+
+    @MainActor
+    func testNavigateWhileZoomedPreservesZoom() {
+        let config = BonsplitConfiguration(preserveZoomOnNavigation: true)
+        let controller = BonsplitController(configuration: config)
+        let paneA = controller.focusedPaneId!
+        controller.splitPane(paneA, orientation: .horizontal)
+        let paneB = controller.focusedPaneId!
+        // Fix divider so both panes have real bounds
+        if let split = controller.internalController.allSplits.first {
+            split.dividerPosition = 0.5
+        }
+
+        controller.focusPane(paneA)
+        controller.toggleZoom(paneId: paneA)
+        XCTAssertTrue(controller.isZoomed)
+
+        controller.navigateFocus(direction: .right)
+        XCTAssertTrue(controller.isZoomed)
+        XCTAssertEqual(controller.zoomedPaneId, paneB)
+    }
+
     // MARK: - Test Helpers
 
     @MainActor
@@ -226,8 +259,15 @@ final class BonsplitTests: XCTestCase {
         let paneA = controller.focusedPaneId!
         controller.splitPane(paneA, orientation: .horizontal)
         let paneB = controller.focusedPaneId!
+        // Fix divider position for geometry calculations
+        if let split = controller.internalController.allSplits.first {
+            split.dividerPosition = 0.5
+        }
         // Split paneB to get a third pane — paneA is still intact
         controller.splitPane(paneB, orientation: .horizontal)
+        if let splits = controller.internalController.allSplits.last {
+            splits.dividerPosition = 0.5
+        }
         // Returns paneA and paneB (paneC exists but we don't need its ID)
         return (controller, paneA, paneB)
     }
@@ -238,7 +278,11 @@ final class BonsplitTests: XCTestCase {
         let paneA = controller.focusedPaneId!
         controller.splitPane(paneA, orientation: .horizontal)
         // focus moves to new pane after split
-        let paneB = controller.focusedPaneId! 
+        let paneB = controller.focusedPaneId!
+        // Fix divider position (starts at 1.0 for animation, set to 0.5 for test geometry)
+        if let split = controller.internalController.allSplits.first {
+            split.dividerPosition = 0.5
+        }
         return (controller, paneA, paneB)
     }
 }
