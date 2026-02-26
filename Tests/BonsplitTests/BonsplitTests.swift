@@ -115,6 +115,51 @@ final class BonsplitTests: XCTestCase {
         XCTAssertNil(svc.zoomedPaneId)
     }
 
+    // MARK: - Zoom Public API Tests
+
+    @MainActor
+    func testPublicToggleZoomReflectsState() {
+        let (controller, paneA, _) = makeTwoPaneController()
+
+        let result = controller.toggleZoom(paneId: paneA)
+        XCTAssertTrue(result)
+        XCTAssertTrue(controller.isZoomed)
+        XCTAssertEqual(controller.zoomedPaneId, paneA)
+    }
+
+    @MainActor
+    func testPublicToggleZoomDefaultsToFocusedPane() {
+        let (controller, _, paneB) = makeTwoPaneController()
+        // paneB is focused after split
+        XCTAssertEqual(controller.focusedPaneId, paneB)
+
+        let result = controller.toggleZoom()
+        XCTAssertTrue(result)
+        XCTAssertEqual(controller.zoomedPaneId, paneB)
+    }
+
+    @MainActor
+    func testPublicUnzoomClearsState() {
+        let (controller, paneA, _) = makeTwoPaneController()
+
+        controller.toggleZoom(paneId: paneA)
+        XCTAssertTrue(controller.isZoomed)
+        controller.unzoom()
+        XCTAssertFalse(controller.isZoomed)
+        XCTAssertNil(controller.zoomedPaneId)
+    }
+
+    @MainActor
+    func testIsZoomedReflectsState() {
+        let (controller, paneA, _) = makeTwoPaneController()
+
+        XCTAssertFalse(controller.isZoomed)
+        controller.toggleZoom(paneId: paneA)
+        XCTAssertTrue(controller.isZoomed)
+        controller.toggleZoom(paneId: paneA)
+        XCTAssertFalse(controller.isZoomed)
+    }
+
     // MARK: - Test Helpers
 
     @MainActor

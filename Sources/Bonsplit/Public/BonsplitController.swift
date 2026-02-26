@@ -173,6 +173,46 @@ public final class BonsplitController {
         notifyTabSelection()
     }
 
+    // MARK: - Zoom
+
+    /// The currently zoomed pane, if any. Only one pane can be zoomed at a time.
+    public var zoomedPaneId: PaneID? {
+        internalController.zoomedPaneId
+    }
+
+    /// Whether any pane is currently zoomed.
+    public var isZoomed: Bool {
+        zoomedPaneId != nil
+    }
+
+    /// Toggle zoom on the specified pane (or the focused pane if nil).
+    /// - Parameter paneId: The pane to zoom, or nil to use the focused pane
+    /// - Returns: `true` if the zoom state changed
+    @discardableResult
+    public func toggleZoom(paneId: PaneID? = nil) -> Bool {
+        let previousZoomed = internalController.zoomedPaneId
+        let zoomStateChanged = internalController.toggleZoom(paneId: paneId)
+
+        if zoomStateChanged {
+            if let zoomed = internalController.zoomedPaneId {
+                delegate?.splitTabBar(self, didZoomPane: zoomed)
+            } else if let previousZoomed {
+                delegate?.splitTabBar(self, didUnzoomPane: previousZoomed)
+            }
+        }
+
+        return zoomStateChanged
+    }
+
+    /// Explicitly exit zoom without toggling.
+    public func unzoom() {
+        let previousZoomed = internalController.zoomedPaneId
+        internalController.unzoom()
+        if let previousZoomed {
+            delegate?.splitTabBar(self, didUnzoomPane: previousZoomed)
+        }
+    }
+
     // MARK: - Split Operations
 
     /// Split the focused pane (or specified pane)

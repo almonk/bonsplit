@@ -44,6 +44,14 @@ public protocol BonsplitDelegate: AnyObject {
     /// Called after a pane has been closed.
     func splitTabBar(_ controller: BonsplitController, didClosePane paneId: PaneID)
 
+    // MARK: - Zoom (Notifications)
+
+    /// Called after a pane is zoomed to fill the container.
+    func splitTabBar(_ controller: BonsplitController, didZoomPane paneId: PaneID)
+
+    /// Called after zoom is exited and the full layout is restored.
+    func splitTabBar(_ controller: BonsplitController, didUnzoomPane paneId: PaneID)
+
     // MARK: - Focus
 
     /// Called when focus changes to a different pane.
@@ -71,6 +79,8 @@ public extension BonsplitDelegate {
     func splitTabBar(_ controller: BonsplitController, shouldClosePane pane: PaneID) -> Bool { true }
     func splitTabBar(_ controller: BonsplitController, didSplitPane originalPane: PaneID, newPane: PaneID, orientation: SplitOrientation) {}
     func splitTabBar(_ controller: BonsplitController, didClosePane paneId: PaneID) {}
+    func splitTabBar(_ controller: BonsplitController, didZoomPane paneId: PaneID) {}
+    func splitTabBar(_ controller: BonsplitController, didUnzoomPane paneId: PaneID) {}
     func splitTabBar(_ controller: BonsplitController, didFocusPane pane: PaneID) {}
     func splitTabBar(_ controller: BonsplitController, didChangeGeometry snapshot: LayoutSnapshot) {}
     func splitTabBar(_ controller: BonsplitController, shouldNotifyDuringDrag: Bool) -> Bool { false }
