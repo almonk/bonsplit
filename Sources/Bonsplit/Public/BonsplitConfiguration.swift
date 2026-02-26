@@ -53,6 +53,10 @@ public struct BonsplitConfiguration: Sendable {
     /// Controls where new tabs are inserted in the tab list
     public var newTabPosition: NewTabPosition
 
+    /// Whether focus navigation while zoomed preserves zoom (moves to target pane)
+    /// or exits zoom first. Default: `false` (unzoom on navigate).
+    public var preserveZoomOnNavigation: Bool
+
     // MARK: - Appearance
 
     /// Tab bar appearance customization
@@ -85,6 +89,7 @@ public struct BonsplitConfiguration: Sendable {
         autoCloseEmptyPanes: Bool = true,
         contentViewLifecycle: ContentViewLifecycle = .recreateOnSwitch,
         newTabPosition: NewTabPosition = .current,
+        preserveZoomOnNavigation: Bool = false,
         appearance: Appearance = .default
     ) {
         self.allowSplits = allowSplits
@@ -95,6 +100,7 @@ public struct BonsplitConfiguration: Sendable {
         self.autoCloseEmptyPanes = autoCloseEmptyPanes
         self.contentViewLifecycle = contentViewLifecycle
         self.newTabPosition = newTabPosition
+        self.preserveZoomOnNavigation = preserveZoomOnNavigation
         self.appearance = appearance
     }
 }

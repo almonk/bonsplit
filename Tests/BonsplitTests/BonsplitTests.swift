@@ -60,7 +60,7 @@ final class BonsplitTests: XCTestCase {
         XCTAssertTrue(controller.configuration.allowCloseTabs)
     }
 
-    // MARK: - Zoom Tests
+    // MARK: - Zoom 
 
     @MainActor
     func testToggleZoomSinglePaneIsNoOp() {
@@ -115,8 +115,6 @@ final class BonsplitTests: XCTestCase {
         XCTAssertNil(svc.zoomedPaneId)
     }
 
-    // MARK: - Zoom Public API Tests
-
     @MainActor
     func testPublicToggleZoomReflectsState() {
         let (controller, paneA, _) = makeTwoPaneController()
@@ -158,6 +156,18 @@ final class BonsplitTests: XCTestCase {
         XCTAssertTrue(controller.isZoomed)
         controller.toggleZoom(paneId: paneA)
         XCTAssertFalse(controller.isZoomed)
+    }
+
+    @MainActor
+    func testDefaultConfigPreserveZoomIsFalse() {
+        let config = BonsplitConfiguration.default
+        XCTAssertFalse(config.preserveZoomOnNavigation)
+    }
+
+    @MainActor
+    func testConfigAcceptsPreserveZoomOnNavigation() {
+        let config = BonsplitConfiguration(preserveZoomOnNavigation: true)
+        XCTAssertTrue(config.preserveZoomOnNavigation)
     }
 
     // MARK: - Test Helpers
