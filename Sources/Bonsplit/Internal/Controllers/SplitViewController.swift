@@ -29,6 +29,9 @@ final class SplitViewController {
     /// Callback for geometry changes
     var onGeometryChange: (() -> Void)?
 
+    /// Currently zoomed pane ID (nil = not zoomed)
+    var zoomedPaneId: PaneID?
+
     init(rootNode: SplitNode? = nil) {
         if let rootNode {
             self.rootNode = rootNode
@@ -53,6 +56,42 @@ final class SplitViewController {
     var focusedPane: PaneState? {
         guard let focusedPaneId else { return nil }
         return rootNode.findPane(focusedPaneId)
+    }
+
+    // MARK: - Zoom
+
+    /// Toggle zoom on the specified pane (or the focused pane if nil).
+    /// - Returns: `true` if the zoom state changed
+    @discardableResult
+    func toggleZoom(paneId: PaneID? = nil) -> Bool {
+        let targetId = paneId ?? focusedPaneId
+        guard let targetId else { return false }
+
+        // If already zoomed
+        if let currentZoomed = zoomedPaneId {
+            if currentZoomed == targetId {
+                // Toggle off
+                zoomedPaneId = nil
+                return true
+            } else {
+                // Move zoom to different pane
+                guard rootNode.findPane(targetId) != nil else { return false }
+                zoomedPaneId = targetId
+                return true
+            }
+        }
+
+        // Not zoomed — only zoom if there are multiple panes
+        guard rootNode.allPaneIds.count > 1 else { return false }
+        guard rootNode.findPane(targetId) != nil else { return false }
+
+        zoomedPaneId = targetId
+        return true
+    }
+
+    /// Explicitly exit zoom without toggling.
+    func unzoom() {
+        zoomedPaneId = nil
     }
 
     // MARK: - Split Operations

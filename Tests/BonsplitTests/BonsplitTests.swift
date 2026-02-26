@@ -59,4 +59,71 @@ final class BonsplitTests: XCTestCase {
         XCTAssertFalse(controller.configuration.allowSplits)
         XCTAssertTrue(controller.configuration.allowCloseTabs)
     }
+
+    // MARK: - Zoom Tests
+
+    @MainActor
+    func testToggleZoomSinglePaneIsNoOp() {
+        let controller = BonsplitController()
+        let svc = controller.internalController
+
+        let result = svc.toggleZoom(paneId: svc.focusedPaneId)
+        XCTAssertFalse(result)
+        XCTAssertNil(svc.zoomedPaneId)
+    }
+
+    @MainActor
+    func testToggleZoomWithTwoPanes() {
+        let (controller, paneA, _) = makeTwoPaneController()
+        let svc = controller.internalController
+
+        let result = svc.toggleZoom(paneId: paneA)
+        XCTAssertTrue(result)
+        XCTAssertEqual(svc.zoomedPaneId, paneA)
+    }
+
+    @MainActor
+    func testToggleZoomSamePaneUnzooms() {
+        let (controller, paneA, _) = makeTwoPaneController()
+        let svc = controller.internalController
+
+        svc.toggleZoom(paneId: paneA)
+        let result = svc.toggleZoom(paneId: paneA)
+        XCTAssertTrue(result)
+        XCTAssertNil(svc.zoomedPaneId)
+    }
+
+    @MainActor
+    func testToggleZoomDifferentPaneMovesZoom() {
+        let (controller, paneA, paneB) = makeTwoPaneController()
+        let svc = controller.internalController
+
+        svc.toggleZoom(paneId: paneA)
+        let result = svc.toggleZoom(paneId: paneB)
+        XCTAssertTrue(result)
+        XCTAssertEqual(svc.zoomedPaneId, paneB)
+    }
+
+    @MainActor
+    func testUnzoomClearsState() {
+        let (controller, paneA, _) = makeTwoPaneController()
+        let svc = controller.internalController
+
+        svc.toggleZoom(paneId: paneA)
+        XCTAssertNotNil(svc.zoomedPaneId)
+        svc.unzoom()
+        XCTAssertNil(svc.zoomedPaneId)
+    }
+
+    // MARK: - Test Helpers
+
+    @MainActor
+    private func makeTwoPaneController() -> (BonsplitController, PaneID, PaneID) {
+        let controller = BonsplitController()
+        let paneA = controller.focusedPaneId!
+        controller.splitPane(paneA, orientation: .horizontal)
+        // focus moves to new pane after split
+        let paneB = controller.focusedPaneId! 
+        return (controller, paneA, paneB)
+    }
 }
