@@ -375,7 +375,15 @@ public final class BonsplitController {
     /// Get current layout snapshot with pixel coordinates
     public func layoutSnapshot() -> LayoutSnapshot {
         let containerFrame = internalController.containerFrame
-        let paneBounds = internalController.rootNode.computePaneBounds()
+        let zoomed = internalController.zoomedPaneId
+
+        // When zoomed, return only the zoomed pane filling the container
+        let paneBounds: [PaneBounds]
+        if let zoomed, let zoomedPane = internalController.rootNode.findPane(zoomed) {
+            paneBounds = [PaneBounds(paneId: zoomedPane.id, bounds: CGRect(x: 0, y: 0, width: 1, height: 1))]
+        } else {
+            paneBounds = internalController.rootNode.computePaneBounds()
+        }
 
         let paneGeometries = paneBounds.map { bounds -> PaneGeometry in
             let pane = internalController.rootNode.findPane(bounds.paneId)
@@ -397,6 +405,8 @@ public final class BonsplitController {
             containerFrame: PixelRect(from: containerFrame),
             panes: paneGeometries,
             focusedPaneId: focusedPaneId?.id.uuidString,
+            isZoomed: zoomed != nil,
+            zoomedPaneId: zoomed?.id.uuidString,
             timestamp: Date().timeIntervalSince1970
         )
     }

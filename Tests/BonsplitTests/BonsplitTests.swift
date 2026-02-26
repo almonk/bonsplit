@@ -219,6 +219,44 @@ final class BonsplitTests: XCTestCase {
     }
 
     @MainActor
+    func testLayoutSnapshotWhileZoomed() {
+        let (controller, paneA, _) = makeTwoPaneController()
+
+        controller.toggleZoom(paneId: paneA)
+        let snapshot = controller.layoutSnapshot()
+
+        XCTAssertEqual(snapshot.panes.count, 1)
+        XCTAssertTrue(snapshot.isZoomed)
+        XCTAssertEqual(snapshot.zoomedPaneId, paneA.id.uuidString)
+    }
+
+    @MainActor
+    func testLayoutSnapshotNotZoomed() {
+        let (controller, _, _) = makeTwoPaneController()
+
+        let snapshot = controller.layoutSnapshot()
+
+        XCTAssertEqual(snapshot.panes.count, 2)
+        XCTAssertFalse(snapshot.isZoomed)
+        XCTAssertNil(snapshot.zoomedPaneId)
+    }
+
+    @MainActor
+    func testTreeSnapshotWhileZoomedReturnsFull() {
+        let (controller, paneA, _) = makeTwoPaneController()
+
+        controller.toggleZoom(paneId: paneA)
+        let tree = controller.treeSnapshot()
+
+        // Tree should contain both panes regardless of zoom
+        if case .split(let split) = tree {
+            XCTAssertNotNil(split)
+        } else {
+            XCTFail("Expected split node at root, got pane")
+        }
+    }
+
+    @MainActor
     func testNavigateWhileZoomedUnzooms() {
         let (controller, paneA, _) = makeTwoPaneController()
         // Focus paneA and zoom it
