@@ -67,11 +67,11 @@ struct SplitContainerView<Content: View, EmptyContent: View>: NSViewRepresentabl
                 splitState.dividerPosition = 0.5
 
                 // Wait for layout
-                DispatchQueue.main.async {
+                Task {
                     // Show the new pane and animate
                     splitView.arrangedSubviews[newPaneIndex].isHidden = false
 
-                    SplitAnimator.shared.animate(
+                    controller.animator.animate(
                         splitView: splitView,
                         from: startPosition,
                         to: targetPosition

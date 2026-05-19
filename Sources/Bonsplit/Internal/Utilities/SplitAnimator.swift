@@ -23,14 +23,11 @@ final class SplitAnimator {
     private var displayLink: CVDisplayLink?
     private var animations: [UUID: Animation] = [:]
 
-    /// Shared animator instance
-    static let shared = SplitAnimator()
-
     /// Animation duration in seconds
     nonisolated static let animationDuration: CFTimeInterval = 0.16
     // MARK: - Initialization
 
-    private init() {
+    package init() {
         setupDisplayLink()
     }
 
