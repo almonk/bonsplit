@@ -48,12 +48,16 @@ public struct LayoutSnapshot: Codable, Sendable, Equatable {
     public let containerFrame: PixelRect
     public let panes: [PaneGeometry]
     public let focusedPaneId: String?
+    public let isZoomed: Bool
+    public let zoomedPaneId: String?
     public let timestamp: TimeInterval
 
-    public init(containerFrame: PixelRect, panes: [PaneGeometry], focusedPaneId: String?, timestamp: TimeInterval) {
+    public init(containerFrame: PixelRect, panes: [PaneGeometry], focusedPaneId: String?, isZoomed: Bool = false, zoomedPaneId: String? = nil, timestamp: TimeInterval) {
         self.containerFrame = containerFrame
         self.panes = panes
         self.focusedPaneId = focusedPaneId
+        self.isZoomed = isZoomed
+        self.zoomedPaneId = zoomedPaneId
         self.timestamp = timestamp
     }
 }

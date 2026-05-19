@@ -48,6 +48,10 @@ class AppState: ObservableObject {
         _ = controller.closeTab(tab.id)
     }
 
+    func toggleZoom() {
+        controller.toggleZoom()
+    }
+
     func splitHorizontal() {
         // Split creates empty pane - we create a tab via the delegate callback
         _ = controller.splitPane(orientation: .horizontal)
@@ -155,6 +159,18 @@ extension AppState: BonsplitDelegate {
 
         // Option 2: Leave the pane empty and let user create content
         // (The emptyPane view will be shown - see ContentView)
+    }
+
+    func splitTabBar(_ controller: BonsplitController,
+                     didZoomPane paneId: PaneID) {
+        debugState?.log("🔍 didZoomPane: pane \(paneId.hashValue)")
+        debugState?.refresh()
+    }
+
+    func splitTabBar(_ controller: BonsplitController,
+                     didUnzoomPane paneId: PaneID) {
+        debugState?.log("🔍 didUnzoomPane: pane \(paneId.hashValue)")
+        debugState?.refresh()
     }
 
     func splitTabBar(_ controller: BonsplitController,

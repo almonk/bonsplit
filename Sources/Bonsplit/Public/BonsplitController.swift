@@ -173,6 +173,46 @@ public final class BonsplitController {
         notifyTabSelection()
     }
 
+    // MARK: - Zoom
+
+    /// The currently zoomed pane, if any. Only one pane can be zoomed at a time.
+    public var zoomedPaneId: PaneID? {
+        internalController.zoomedPaneId
+    }
+
+    /// Whether any pane is currently zoomed.
+    public var isZoomed: Bool {
+        zoomedPaneId != nil
+    }
+
+    /// Toggle zoom on the specified pane (or the focused pane if nil).
+    /// - Parameter paneId: The pane to zoom, or nil to use the focused pane
+    /// - Returns: `true` if the zoom state changed
+    @discardableResult
+    public func toggleZoom(paneId: PaneID? = nil) -> Bool {
+        let previousZoomed = internalController.zoomedPaneId
+        let zoomStateChanged = internalController.toggleZoom(paneId: paneId)
+
+        if zoomStateChanged {
+            if let zoomed = internalController.zoomedPaneId {
+                delegate?.splitTabBar(self, didZoomPane: zoomed)
+            } else if let previousZoomed {
+                delegate?.splitTabBar(self, didUnzoomPane: previousZoomed)
+            }
+        }
+
+        return zoomStateChanged
+    }
+
+    /// Explicitly exit zoom without toggling.
+    public func unzoom() {
+        let previousZoomed = internalController.zoomedPaneId
+        internalController.unzoom()
+        if let previousZoomed {
+            delegate?.splitTabBar(self, didUnzoomPane: previousZoomed)
+        }
+    }
+
     // MARK: - Split Operations
 
     /// Split the focused pane (or specified pane)
@@ -269,6 +309,24 @@ public final class BonsplitController {
 
     /// Navigate focus in a direction
     public func navigateFocus(direction: NavigationDirection) {
+        if internalController.zoomedPaneId != nil {
+            if configuration.preserveZoomOnNavigation {
+                // Navigate, then move zoom to the new focused pane
+                internalController.navigateFocus(direction: direction)
+                internalController.zoomedPaneId = internalController.focusedPaneId
+            } else {
+                // Unzoom first, then navigate
+                let previousZoomedId = internalController.zoomedPaneId!
+                internalController.zoomedPaneId = nil
+                delegate?.splitTabBar(self, didUnzoomPane: previousZoomedId)
+                internalController.navigateFocus(direction: direction)
+            }
+            if let focusedPaneId {
+                delegate?.splitTabBar(self, didFocusPane: focusedPaneId)
+            }
+            return
+        }
+
         internalController.navigateFocus(direction: direction)
         if let focusedPaneId {
             delegate?.splitTabBar(self, didFocusPane: focusedPaneId)
@@ -317,7 +375,15 @@ public final class BonsplitController {
     /// Get current layout snapshot with pixel coordinates
     public func layoutSnapshot() -> LayoutSnapshot {
         let containerFrame = internalController.containerFrame
-        let paneBounds = internalController.rootNode.computePaneBounds()
+        let zoomed = internalController.zoomedPaneId
+
+        // When zoomed, return only the zoomed pane filling the container
+        let paneBounds: [PaneBounds]
+        if let zoomed, let zoomedPane = internalController.rootNode.findPane(zoomed) {
+            paneBounds = [PaneBounds(paneId: zoomedPane.id, bounds: CGRect(x: 0, y: 0, width: 1, height: 1))]
+        } else {
+            paneBounds = internalController.rootNode.computePaneBounds()
+        }
 
         let paneGeometries = paneBounds.map { bounds -> PaneGeometry in
             let pane = internalController.rootNode.findPane(bounds.paneId)
@@ -339,6 +405,8 @@ public final class BonsplitController {
             containerFrame: PixelRect(from: containerFrame),
             panes: paneGeometries,
             focusedPaneId: focusedPaneId?.id.uuidString,
+            isZoomed: zoomed != nil,
+            zoomedPaneId: zoomed?.id.uuidString,
             timestamp: Date().timeIntervalSince1970
         )
     }
