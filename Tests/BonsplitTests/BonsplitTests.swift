@@ -60,6 +60,23 @@ final class BonsplitTests: XCTestCase {
         XCTAssertTrue(controller.configuration.allowCloseTabs)
     }
 
+    func testTabCloseButtonVisibilityFollowsConfiguration() {
+        XCTAssertTrue(
+            TabItemView.showsCloseButton(
+                allowsClose: true,
+                isHovered: true,
+                isCloseHovered: false
+            )
+        )
+        XCTAssertFalse(
+            TabItemView.showsCloseButton(
+                allowsClose: false,
+                isHovered: true,
+                isCloseHovered: true
+            )
+        )
+    }
+
     // MARK: - Zoom
 
     @MainActor
