@@ -4,6 +4,7 @@ import SwiftUI
 struct TabItemView: View {
     let tab: TabItem
     let isSelected: Bool
+    let allowsClose: Bool
     let onSelect: () -> Void
     let onClose: () -> Void
 
@@ -28,7 +29,9 @@ struct TabItemView: View {
             Spacer(minLength: 4)
 
             // Close button or dirty indicator
-            closeOrDirtyIndicator
+            if allowsClose || tab.isDirty {
+                closeOrDirtyIndicator
+            }
         }
         .padding(.horizontal, TabBarMetrics.tabHorizontalPadding)
         .offset(y: isSelected ? 0.5 : 0)
@@ -94,14 +97,18 @@ struct TabItemView: View {
     private var closeOrDirtyIndicator: some View {
         ZStack {
             // Dirty indicator (shown when dirty and not hovering)
-            if tab.isDirty && !isHovered && !isCloseHovered {
+            if tab.isDirty && (!allowsClose || (!isHovered && !isCloseHovered)) {
                 Circle()
                     .fill(TabBarColors.dirtyIndicator)
                     .frame(width: TabBarMetrics.dirtyIndicatorSize, height: TabBarMetrics.dirtyIndicatorSize)
             }
 
             // Close button (shown on hover)
-            if isHovered || isCloseHovered {
+            if Self.showsCloseButton(
+                allowsClose: allowsClose,
+                isHovered: isHovered,
+                isCloseHovered: isCloseHovered
+            ) {
                 Button {
                     onClose()
                 } label: {
@@ -123,5 +130,13 @@ struct TabItemView: View {
         .frame(width: TabBarMetrics.closeButtonSize, height: TabBarMetrics.closeButtonSize)
         .animation(.easeInOut(duration: TabBarMetrics.hoverDuration), value: isHovered)
         .animation(.easeInOut(duration: TabBarMetrics.hoverDuration), value: isCloseHovered)
+    }
+
+    static func showsCloseButton(
+        allowsClose: Bool,
+        isHovered: Bool,
+        isCloseHovered: Bool
+    ) -> Bool {
+        allowsClose && (isHovered || isCloseHovered)
     }
 }
