@@ -44,6 +44,9 @@ struct TabItemView: View {
         .onTapGesture {
             onSelect()
         }
+        .onMiddleClick {
+            onClose()
+        }
         .onHover { hovering in
             withAnimation(.easeInOut(duration: TabBarMetrics.hoverDuration)) {
                 isHovered = hovering
